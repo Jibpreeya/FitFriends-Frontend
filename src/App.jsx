@@ -1,21 +1,21 @@
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.scss';
 import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className='app'>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         {/* <Navbar /> */}
-        {/* <Routes> */}
-          {/* <Route path='/Login' element= {<Login />} /> */}
-          <Login/>
-          {/* <Route path='/Register' element= {<Register />} /> */}
-        {/* </Routes> */}
-      {/* </BrowserRouter> */}
+        <Routes>
+          <Route path='/' element= {<Login />} />
+          <Route path='/Register' element= {<Register />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
