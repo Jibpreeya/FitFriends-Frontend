@@ -38,7 +38,6 @@ function Register() {
              <img src='src/images/age.png'/>
              <img src='src/images/height.png'/>
              <img src='src/images/weight.png'/>
-
            </div>
 
            <div className='textBox'>
@@ -82,7 +81,7 @@ function Register() {
 
         <button type='submit'>Register</button>
         <div className='underRegister'>
-            <h3><Link to='/'><span>Go to login</span></Link></h3>
+            <h3><Link to='/'><span>Back to login</span></Link></h3>
         </div>
        </form>
      </div>

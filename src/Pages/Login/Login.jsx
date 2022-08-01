@@ -18,8 +18,10 @@ function Login() {
   const validation = () => {
     const check = users.find(user => (user.username === userLogin.username && user.password === userLogin.password));
     if(check) {
+      alert('Login successful')
       console.log('Login successful');
     }else {
+      alert('invalid password or username')
       console.log('invalid password or username');
     }
   }
@@ -73,7 +75,6 @@ function Login() {
            <h3><Link to='/Register'><span>Register</span></Link></h3>
          </div>
        </form>
-       {/* <Link to='/Login'>Maybe Later</Link>       */}
      </div>
     )
   }

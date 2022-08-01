@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.scss';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className='app'>

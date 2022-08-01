@@ -27,7 +27,7 @@
             justify-content: center;
             img {
                 height: 40px;
-                margin: 6px;
+                margin: 7px;
             }
 
             input::placeholder { //placeholder คือแสดงข้อความในกล่อง text
@@ -96,6 +96,9 @@
         form {
             height: 260px;
             width: 100%;
+        }
+        button {
+            width: 50%;
         }
     }
 }
