@@ -1,0 +1,102 @@
+.register {
+    //จัดกลางหน้าจอ จาก google
+    position: fixed;
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);
+    width: 30%;
+    
+    form {
+        height: 450px;
+        width: 100%;
+        background-color: rgba(70, 70, 156, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1.5em; // border-radiusคือความโค้งของกล่องที่เก็บ
+
+        h1 {
+            color: rgb(252, 252, 252);
+            text-align: center;
+            margin: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            img {
+                height: 40px;
+                margin: 7px;
+            }
+
+            input::placeholder { //placeholder คือแสดงข้อความในกล่อง text
+                font-weight: bold;
+                opacity: 0.8;
+                color: rgb(5, 5, 5);
+                text-align: center;
+            }
+
+            input {
+                height: 40px;
+                width: 90%;
+                margin: 5px;
+                padding: 0;
+            }
+
+            .icons, .textBox{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    button {
+        height: 40px;
+        width: 30%;
+        margin-top: 10px;
+        background-color: rgba(43, 36, 36, 1);
+        color: white;
+        border-radius: 1em;
+    }
+
+    .underRegister {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        h3 {
+            margin: 10px;
+            span {
+                color: white;
+                text-decoration: none; //text-decorationคือเอาเส้นใต้ออก
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .register {
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .register {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .register {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .register {
+        font-size: 12px;
+        width: 90%;
+        height: 450px;
+        form {
+            height: 430px;
+            width: 100%;
+        }
+    }
+}
