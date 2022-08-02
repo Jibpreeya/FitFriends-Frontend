@@ -12,13 +12,13 @@ function App() {
   return (
     <div className='app'>
       <Post />
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         {/* <Navbar /> */}
-        <Routes>
+        {/* <Routes>
           <Route path='/' element= {<Login />} />
           <Route path='/Register' element= {<Register />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   )
     

@@ -10,8 +10,10 @@ export const Post = () => {
         {id:'d', value: 'yoga', text: 'Yoga'},
         {id:'e', value: 'aerobic', text: 'Aerobic'},
         {id:'f', value: 'strength Training', text: 'Strength Training'},
-        {id:'g', value: 'dance', text: 'Dance'},
-        {id:'h', value: '', text: 'Other'},
+        {id:'g', value: 'swimming', text: 'swimming'},
+        {id:'h', value: 'dance', text: 'Dance'},
+        {id:'i', value: 'boxing', text: 'Boxing'},
+        {id:'j', value: '', text: 'Other'},
       ];
 
       const [form, setForm] = useState({
@@ -25,25 +27,33 @@ export const Post = () => {
     
     const [images, setImages] = useState([]);
     const [imageURLs, setImagesURLs] = useState([]);
+
     
+    // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
+    // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
     useEffect(() => {
         if (images.length < 1)return;
         const newImageUrls = [];
         images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
         setImagesURLs(newImageUrls);
+        setForm({
+            ...form,
+            imageUrls: newImageUrls,
+            })
     },[images]);
 
    const onChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value});
     }
-
     
+
    const onSubmits = (e) => {
         e.preventDefault();
         console.log(form);
         console.log(images);
    }
 
+    // ส่งข้อมูลขึ้นใหม่
     function onImageChange(e) {
         setImages([...e.target.files]);
     }
@@ -102,18 +112,27 @@ export const Post = () => {
         
         <div className="content">
         <label>caption</label>    
-            <textarea type="text" name="caption" 
+            <textarea type="text" 
+            name="caption" 
             placeholder="what is your activity today?"
             value={form.caption}
             onChange={onChange}
             required
+            maxLength="200"
+            rows="3" cols="50"
             />
         </div>
 
         <div className="content">
         <label>Photo+</label>
-            <input className="inputPhoto" type="file" name="images" multiple accept="image/*" onChange={onImageChange} />
+            <input type="file"
+            className="inputPhoto" 
+            name="images" 
+            multiple accept="image/*" 
+            onChange={onImageChange}
+             />
             {imageURLs.map((imageSrc, index) => (<img width="640" height="360" src={imageSrc} key={index} />))}
+           {/* เวลาใส่ภาพจะพรีวิวรูปภาพด้วยตรงนี้  */}
         </div>
         
         <div className='buttonPost'>
