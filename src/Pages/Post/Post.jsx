@@ -14,9 +14,10 @@ export const Post = () => {
         {id:'g', value: 'swimming', text: 'swimming'},
         {id:'h', value: 'dance', text: 'Dance'},
         {id:'i', value: 'boxing', text: 'Boxing'},
-        {id:'j', value: '', text: 'Other'},
+        {id:'j', value: 'other', text: 'Other'},
       ];
 
+    
       const [form, setForm] = useState({
         selected: '',
         date: '',
@@ -67,20 +68,28 @@ export const Post = () => {
 
         <div className="content">
             <label>Sport</label>
-            <select  required value={form.selected} name="selected" onChange={onChange}>{options.map(option => (
+            <select  required value={form.selected} name="selected" onChange={onChange}>{ options.map(option => (
                 <option
                     disabled={option.disabled}
                     key={option.id}
-                    value={option.value}> {option.text}
+                    value={option.value}>
+                         {option.text}
                 </option>
                     ))}
             </select>
+            {form.selected === 'other' && < input name="addSport" 
+                className="addSport"
+                onChange={onChange}
+                value={form.addSport}
+                placeholder='Add Sport...'/>}    
+                {/* สร้างเงื่อนไขเวลาเลือก other มีปุ่มให้ add sport เอง */}
         </div>
 
        <div className="content">
         <label>Date</label>
             <input type="date" 
-            name="date"  
+            name="date" 
+            className="dateInput"
             value={form.date}
             onChange={onChange}  required/> 
         </div>
@@ -103,6 +112,7 @@ export const Post = () => {
         <div className="content">
         <label>Location</label>    
             <input type="text"
+            className="locationInput"
             name="location" 
             placeholder="Share your location" 
             value={form.location}
@@ -120,18 +130,19 @@ export const Post = () => {
             onChange={onChange}
             required
             maxLength="200"
-            rows="3" cols="50"
+            rows="5" cols="50"
             />
         </div>
 
         <div className="content">
-        <label>Photo+</label>
+        <label>Photo</label>
             <input type="file"
             className="inputPhoto" 
             name="images" 
             multiple accept="image/*" 
             onChange={onImageChange}
              />
+            <p className="choosePhoto">Choose a photo</p>
             {imageURLs.map((imageSrc, index) => (<img width="640" height="360" src={imageSrc} key={index} />))}
            {/* เวลาใส่ภาพจะพรีวิวรูปภาพด้วยตรงนี้  */}
         </div>

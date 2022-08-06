@@ -13,6 +13,7 @@ import ProfilePage from './Pages/ProfilePage/ProfilePage'
 function App() {
   return (
     <div className='app'>
+       <Post />
       {/* พื้นที่สำหรับรัน test แต่ละ page */}
         {/* <Login /> */}
         {/* <Register /> */}
