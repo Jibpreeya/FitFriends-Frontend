@@ -13,15 +13,17 @@ import ProfilePage from './Pages/ProfilePage/ProfilePage'
 function App() {
   return (
     <div className='app'>
-       <Post />
+
       {/* พื้นที่สำหรับรัน test แต่ละ page */}
         {/* <Login /> */}
         {/* <Register /> */}
         {/* <MainPage /> */}
         {/* <Post /> */}
         {/* <ProfilePage /> */}
+
       <BrowserRouter>
         <Navbar />
+        {/* นอก tag Routes คือการใส่ทุกหน้า */}
         <Routes>
           <Route path='/' element= {<Login />} />
           <Route path='/Register' element= {<Register />} />
