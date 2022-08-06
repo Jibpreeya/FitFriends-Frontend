@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import './Login.scss';
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [userLogin, setUserLogin] = useState({
@@ -68,11 +68,10 @@ function Login() {
         <button type='submit'>Login</button>
 
         <div className='underButton'>
-          <h3><a href="#popup1" ><span>May be Later</span></a></h3>
+          <h3><Link to='/MainPage'><span>May be Later</span></Link></h3>
           <h3><Link to='/Register'><span>Register</span></Link></h3>
         </div>
        </form>
-      {/* {isLoginSubmitted ? loginSuccess: loginForm} */}
     </div>
   );
 }
