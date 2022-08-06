@@ -11,8 +11,8 @@ import Register from './Pages/Register/Register';
 function App() {
   return (
     <div className='app'>
-      <Post />
-      <BrowserRouter>
+       <Post />
+      <BrowserRouter> 
         {/* <Navbar /> */}
         <Routes>
           <Route path='/' element= {<Login />} />

@@ -10,7 +10,7 @@ $font-family_1: Inter, Avenir, Helvetica, Arial, sans-serif;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: $font-family_1;
-    width: 45%;
+    width: 50%;
     h1 {
         text-align: center;
     }
@@ -27,79 +27,99 @@ $font-family_1: Inter, Avenir, Helvetica, Arial, sans-serif;
             float: left;
             font-weight: bold;
             width: 100px;
-            margin-left: 1px;
             
         }
 
-    /////////ช่องใส่ข้อมูลสีเทา/////
+        /////////ช่องใส่ข้อมูลสีเทา/////
         input,select,textarea {
-            font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
             font-style: italic;
             font-weight: bold;
             color: black;
             background-color: #D9D9D9;
-            width: 100%;
+            width:60%;
             border: 6px solid transparent;
             border-radius: 28px;
-            box-shadow: 2px 3px rgba(0, 0, 0, 0.25);         
+            box-shadow: 2px 3px rgba(0, 0, 0, 0.25); 
+            margin-right: 0.2rem;        
         }
 
-        textarea {
-            resize: both;
-            overflow: auto;
-          }
+        .locationInput, textarea{
+           width: 58%;
+        }
+        input::placeholder, 
+        textarea::placeholder {
+            color: black;
+            font-weight: bold;
+        } 
 
-          select {
+        select {
             position:relative;
             cursor: pointer;
+            margin-left: 1px;
+            width: 61%;
         }
 
-        
 
-        input::placeholder, 
-        textarea::placeholder{
-            color: black;
-        } 
-        
-        .inputPhoto {
+        /////////styling input add sport//////
+        .addSport{
+            width: 20%;  
+            font-size: 12px;
+            margin-left: 0rem;
             background-color: white;
-            border-radius:none;
-            box-shadow: none;
-            border: none;
-            visibility: none;
-            cursor: pointer;
+            border: 0.5px solid black;
         }
 
-        
-        ////////styling - input-time/////
+
+        ////////styling - input-time/////////
         .inputTime {
-            width: 40%;
+            width: 25%;
         }
 
-        
-
-        
-        
-     ////////// - คั่นกลางช่องเวลาสองอัน //////
+                
+        ////////// - คั่นกลางช่องเวลาสองอัน //////
         span {
-           margin-left: 5px;
-           margin-right: 5px; 
+           margin-left: 15px;
+           margin-right: 15px; 
+           font-weight: bold;
         }
 
         input[type=text]:focus {
             border: solid $color_2;
         }
-        
     
          
-        
+    }
 
+    .inputPhoto {
+        cursor: pointer;
+        opacity: 0; //ซ่อนปุ่ม Choose file ถ้าอยากเห็นปุ่ม choose file จริงก็เอาตรงนี้ออก
+    }
+
+    //ทำปุ่ม choose a photo ใหม่
+    .choosePhoto {
+        position: absolute;
+        cursor: pointer;
+        text-align: center;
+        background-color: white;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.25);
+        color: black;
+        overflow: hidden;
+        margin: .3rem 0 0 7rem;
+        border-radius: 20px;
+        font-size: 12px;
+        transition: .3s;
 
     }
 
+    .choosePhoto:hover {
+        background-image: linear-gradient(to bottom right, #833ab4,#fcb045);
+        //แล้วแต่สไตล์เลยค่า
+    }
+
+
+
      ///////styling button//////////////////////////////
-    button {
-        font-family: $font-family_1;
+     button {
         height: 30px;
         width: 80px;
         font-weight: bold;
@@ -135,63 +155,149 @@ $font-family_1: Inter, Avenir, Helvetica, Arial, sans-serif;
         }
 
     }
-     
+    
     
 }   
 
 
 @media only screen and (max-width: 992px) {
     .PostForm {
-        width: 40%;
+        width: 50%;
+
+        .content {
+        
+            label {
+                width: 20%;
+                
+            }
+
+            .addSport {
+                width: 15%;
+            }
+
+            span {
+                margin-left: 9px;
+                margin-right: 9px;
+            }
+
+        }
     }
 }
 @media only screen and (max-width: 768px) {
     .PostForm {
         width: 50%;
+        
+        h1 {
+            margin: 0 auto;
+        }
+
+        .content {
+            padding-bottom: 6px;
+
+            span {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+        
     }
+    
 }
 @media only screen and (max-width: 480px) {
     .PostForm {
         width: 70%;
+        font-size: 10px;
+
+        .content {
+            height: 20%;
+            font-size: 12px;
+            
+            input,textarea,select {
+                font-size: 12px;
+            }
+
+            .addSport {
+                font-size: 9px;
+                
+            }
+            
+            span {
+                margin:0 5px; 
+            }
+        }
+
     }
 }
 @media only screen and (max-width: 320px) {
     .PostForm {
-        font-size: 9px;
-        width: 40%;
-        margin-right: 100rem;
+        width: 80%;
+
+        h1{
+            font-size: 14px;
+        }
         
         .content {
-            height: 30px;
-            width: 150%;
-
+            height: 20%;
+            font-size: 11px;
 
             label{
-                font-size: 12px;
-                padding-right: 0;
+                width: 45px;
             }
-
-            input,select,textarea {
+            
+            input,select {
                 font-size: 10px;
-                width: 100%;
-                
+                width: 60%;
             }
 
+            .dateInput, .locationInput, textarea {
+                font-size: 10px;
+                width: 55%;
+            }
+
+            .addSport {
+                width: 16%;
+                font-size: 8px;
+            }
+
+            textarea {
+                padding-left: 10px;
+
+            }
+            
+            span {
+                margin:0 1px;
+            }
+
+            .choosePhoto {
+                margin: .3rem 0 0 3rem;
+            }
+        }
+
+        button {
+            height: 30px;
+            width: 60px;
+            font-size: 10px;
         }
 
         .buttonPost {
             display: block;
-            justify-content: center;
+            align-items: center;
             width: 90%;
             height: 30px;
           
             .saveButton {
-                margin-bottom: 10px;
+                margin: .5rem 5rem;
+            }
+
+            .cancelButton {
+                margin: 0 5rem;
             }
         }
             
     }
 }
+
+
 
 
 
