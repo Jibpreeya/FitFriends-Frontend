@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Post.scss';
+import { Link } from 'react-router-dom';
 
 
 export const Post = () => {
@@ -148,7 +149,7 @@ export const Post = () => {
         
         <div className='buttonPost'>
             <button className="saveButton" type="submit">SAVE</button> 
-            <button className="cancelButton" type="submit" >CANCEL</button>
+            <Link to='/MainPage'><button className="cancelButton" type="submit" >CANCEL</button></Link>
         </div>  
         </form>
         </div>

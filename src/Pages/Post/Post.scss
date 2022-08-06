@@ -5,10 +5,11 @@ $background-color_2: #26263F;
 $font-family_1: Inter, Avenir, Helvetica, Arial, sans-serif;
 
 .PostForm {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // position: fixed;
+    // top: 60%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    margin: 10px auto;
     font-family: $font-family_1;
     width: 50%;
     h1 {
