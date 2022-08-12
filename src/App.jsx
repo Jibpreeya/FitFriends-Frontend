@@ -17,15 +17,16 @@ function App() {
     <div className='app'>
 
       {/* พื้นที่สำหรับรัน test แต่ละ page */}
+        {/* <Navbar /> */}
         {/* <Login /> */}
         {/* <Register /> */}
         {/* <MainPage /> */}
         {/* <AddPost /> */}
-        <ProfilePage />
+        {/* <ProfilePage /> */}
 
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Navbar />
-        นอก tag Routes คือการใส่ทุกหน้า
+        {/* นอก tag Routes คือการใส่ทุกหน้า */}
         <Routes>
           <Route path='/' element= {<Login />} />
           <Route path='/Register' element= {<Register />} />
@@ -33,7 +34,7 @@ function App() {
           <Route path='/AddPost' element= {<AddPost />} />
           <Route path='/ProfilePage' element= {<ProfilePage />} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
   </div>
   )
     

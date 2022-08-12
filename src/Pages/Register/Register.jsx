@@ -105,7 +105,7 @@ function Register() {
   return (
     <div className='register'>
       <form onSubmit={handleSubmit}>
-        <h1>FitFriends</h1>
+        <h1>REGISTER</h1>
 
         {/* username */}
          <div className='contentRegister'>
@@ -183,7 +183,7 @@ function Register() {
           </div>
         </div>
           
-        <button type='submit'>Register</button>
+        <button type='submit'>Create Account</button>
         <div className='underRegister'>
             <h3><Link to='/'><span>Back to login</span></Link></h3>
         </div>
