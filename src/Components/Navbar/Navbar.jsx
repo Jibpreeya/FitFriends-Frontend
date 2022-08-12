@@ -12,6 +12,7 @@ function Navbar() {
             </div>
             <div className="menu">
                 <ul>
+                    <li><a id='#' className="test">Fitfriend</a></li>
                     <li><a id='#'>Community</a></li>
                     <li><a id='#'>Workout Program</a></li>
                     <li><a id='#'>Recipes</a></li>

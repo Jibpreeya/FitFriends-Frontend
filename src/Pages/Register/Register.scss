@@ -8,7 +8,7 @@
     border: 0.1px solid rgba(0, 0, 0, 0);
     
     form {
-        height: 450px;
+        height: 480px;
         width: 100%;
         background-color: rgba(70, 70, 156, 1);
         display: flex;
@@ -52,6 +52,10 @@
                 margin: 5px;
                 padding: 0;
                 border: 0.1px solid rgba(3, 3, 3, 0); // กำหนดเพื่อจัดให้เท่ากัน
+            }
+
+            .inputUserPhoto {
+                padding: auto 5px;
             }
         }
     }

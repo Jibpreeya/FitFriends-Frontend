@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Register.scss';
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Register() {
   const [userRegister, setUserRegister] = useState({
@@ -8,7 +8,7 @@ function Register() {
     password: '',
     age: '',
     height: '',
-    weight: ''
+    weight: '',
   });
 
   const [checkingRegisterValidation, setCheckingRegisterValidation] = useState({
@@ -19,10 +19,23 @@ function Register() {
     weight: '',
   });
 
+  const [userPhoto, setUserPhoto] = useState([]);
+  const [userPhotoURLs, setUserPhotoURLs] = useState([]);
 
-  const handleChange = (event) => {
-    setUserRegister ({...userRegister, [event.target.name]: event.target.value})
-  };
+  useEffect(() => {
+    if (userPhoto.length < 1)return;
+    const newImageUrls = [];
+    userPhoto.forEach(userPhoto => newImageUrls.push(URL.createObjectURL(userPhoto)));
+    setUserPhotoURLs(newImageUrls);
+    setUserRegister({
+        ...userRegister,
+        userPhotoURLs: newImageUrls,
+        })
+  },[userPhoto]);
+
+  function onImageChange(e) {
+    setUserPhoto([...e.target.files]);
+  }
 
   // checking register validation
   const registerValidation = () => {
@@ -66,9 +79,25 @@ function Register() {
     return setCheckingRegisterValidation(errors)
   };
 
+  const handleChange = (event) => {
+    setUserRegister ({...userRegister, [event.target.name]: event.target.value})
+  };
+
+  useEffect(() => {
+    const weight = userRegister.weight;
+    const height = userRegister.height;
+    if (height.length < 1)return;
+      const userBmi = weight/(height*height) ;
+      setUserRegister({
+        ...userRegister,
+        BMI: userBmi
+        })
+    },[userRegister.height && userRegister.weight]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userRegister)
+    // bmi (userRegister.weight, userRegister.height);
+    console.log(userRegister);
     // preventDefault ไม่ให้ browser reload
     registerValidation();
   };
@@ -108,7 +137,7 @@ function Register() {
           <div className='listContentRegister'>
             <img src='src/images/age.png'/>
             <input 
-              type='text' 
+              type='number' 
               name='age'
               value={userRegister.age}
               onChange={handleChange}
@@ -120,7 +149,7 @@ function Register() {
           <div className='listContentRegister'>
             <img src='src/images/height.png'/>
             <input 
-              type='text' 
+              type='number' 
               name='height'
               value={userRegister.height}
               onChange={handleChange}
@@ -132,15 +161,28 @@ function Register() {
           <div className='listContentRegister'>
             <img src='src/images/weight.png'/>
             <input 
-              type='text' 
+              type='number' 
               name='weight'
               value={userRegister.weight}
               onChange={handleChange}
               placeholder='WEIGHT IN kg'
               required/>
-           </div>
           </div>
 
+          {/* userPhoto */}
+          <div className='listContentRegister'>
+            <img src='src/images/photo.png'/>
+            <input type="file"
+            className="inputPhoto" 
+            name="userPhoto" 
+            multiple accept="userPhoto/*" 
+            onChange={onImageChange}
+             />
+            {/* <p className="choosePhoto">Choose a photo</p> */}
+            {/* {userPhotoURLs.map((imageSrc, index) => (<img width="300" height="300" src={imageSrc} key={index} />))} */}
+          </div>
+        </div>
+          
         <button type='submit'>Register</button>
         <div className='underRegister'>
             <h3><Link to='/'><span>Back to login</span></Link></h3>
