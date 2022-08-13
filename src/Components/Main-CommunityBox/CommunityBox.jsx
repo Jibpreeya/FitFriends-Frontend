@@ -9,7 +9,7 @@ import postImage from './img/garden.jpeg'
 const CommunityBox = () => {
   return (
     <div className='box'>
-      <Post
+      <Post 
         key='1'
         profilePic={womanavatar}
         message='Running with my fam today!'

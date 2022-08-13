@@ -6,10 +6,12 @@ import { Link } from 'react-router-dom';
 import Notification from '../../Components/Main-Notification/notification'
 // import DatePicker from '../../Components/Main-Date/Date'
 
+
 function MainPage() {
 
   return (
     <div className="MainPage">
+
       <div className='main-session'>
         <div className='App-sidebar'>
           <SideBar />
@@ -30,7 +32,6 @@ function MainPage() {
             
           </div>
         </div>
-
 
       </div>
     </div>

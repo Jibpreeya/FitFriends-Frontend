@@ -1,7 +1,9 @@
+
 import React from "react";
 import './Navbar.css';
 import {useState} from 'react'
 import { Link } from "react-router-dom";
+
 function Navbar() {
     const [tabMobile,setTabMobile] = useState(false)
     const [showNavbar,setShowNavbar] = useState(true)
@@ -16,25 +18,31 @@ function Navbar() {
             setShowNavbar(true)
         }
     }
+
     window.addEventListener('scroll',setNavBar)
     return (
         <div className={showNavbar ? 'Nav-content':'Nav-content hide'}>
             <div className="Nav-content1">
                 <div className="logo">
+
                     {/* <a href="#home"><img src="/images/logo-removebg-preview.png" /></a> */}
                     <Link to="/MainPage">Fitfriend</Link>
+
                 </div>
             </div>
             <div className="ul">
                 <ul className="Nav-ul">
+
                     <Link to="/MainPage"><li>Community</li></Link>
                     <Link to="/AddPost"><li>Add Post</li></Link>
                     <Link to="/ProfilePage"><li>My Activities</li></Link>
+
                     
                 </ul>
             </div>
          
             <div className="login-name">
+
                     <button><Link to="/" className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>Login</Link></button>
                     <button><Link to="/Register" className="sign-up"><i className="fa-solid fa-user-plus"></i>Register</Link></button>
             </div>
@@ -63,6 +71,7 @@ function Navbar() {
             </div>
             
         </div>
+
 
         //     // {/* ===================================MEDIA QUERY========================================== */}
 
@@ -96,5 +105,6 @@ function Navbar() {
     )
 };
 
+     
 
-export default Navbar
+export default Navbar;
