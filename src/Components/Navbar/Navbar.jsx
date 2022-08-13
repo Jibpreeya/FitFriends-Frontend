@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import './Navbar.scss';
-import logo from './logo.png'
 
+import React from "react";
+import './Navbar.css';
+import {useState} from 'react'
+import { Link } from "react-router-dom";
 
 function Navbar() {
     const [tabMobile,setTabMobile] = useState(false)
@@ -24,39 +24,43 @@ function Navbar() {
         <div className={showNavbar ? 'Nav-content':'Nav-content hide'}>
             <div className="Nav-content1">
                 <div className="logo">
-                     <a href="#home"><img src="/images/logo-removebg-preview.png" /></a> 
+
+                    {/* <a href="#home"><img src="/images/logo-removebg-preview.png" /></a> */}
+                    <Link to="/MainPage">Fitfriend</Link>
+
                 </div>
             </div>
             <div className="ul">
                 <ul className="Nav-ul">
-                    <li>Community</li>
-                    <li>Post</li>
-                    <li>My Activities</li>
+
+                    <Link to="/MainPage"><li>Community</li></Link>
+                    <Link to="/AddPost"><li>Add Post</li></Link>
+                    <Link to="/ProfilePage"><li>My Activities</li></Link>
+
                     
                 </ul>
             </div>
          
             <div className="login-name">
-                    <button><a id='#' className="sign-in"><i class="fa-solid fa-right-to-bracket"></i>Sign in</a></button>
-                    <button><a id='#' className="sign-up"><i class="fa-solid fa-user-plus"></i>Sign up</a></button>
+
+                    <button><Link to="/" className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>Login</Link></button>
+                    <button><Link to="/Register" className="sign-up"><i className="fa-solid fa-user-plus"></i>Register</Link></button>
             </div>
             <div className="nav-mobile">
                 <div className="toggle-bar">
-                    <i class="fa-solid fa-bars" onClick={toggleMobile}></i>
+                    <i className="fa-solid fa-bars" onClick={toggleMobile}></i>
                 </div>
                 <div className={tabMobile ? "tab-mobile active":"tab-mobile"}>
                     <div className="container-mobile">
                         <div className="mobile-login-name">
-                            <button onClick={toggleMobile}><i class="fa-solid fa-right-to-bracket"></i><a id='#' className="sign-in">Sign in</a></button>
-                            <button onClick={toggleMobile}><i class="fa-solid fa-user-plus"></i><a id='#' className="sign-up">Sign up</a></button>
-                            {/* <button onClick={toggleMobile}><i class="fa-solid fa-right-to-bracket"></i><Link to='/'><a id='#' className="sign-in">Sign in</a></Link></button>
-                            <button onClick={toggleMobile}><i class="fa-solid fa-user-plus"></i><Link to='/Register'><a id='#' className="sign-up">Sign up</a></Link></button> */}
+                            <button onClick={toggleMobile}><Link to="/" className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>Sign in</Link></button>
+                            <button onClick={toggleMobile}><Link to="/Register" className="sign-up"><i className="fa-solid fa-user-plus"></i>Sign up</Link></button>
                         </div>
                         <div className = "mobile-ul">
                             <ul className="mobile-nav-ul">
-                                <li onClick={toggleMobile}>Community</li>
-                                <li onClick={toggleMobile}>Post</li>
-                                <li onClick={toggleMobile}>My Activities</li>
+                                <Link to="/MainPage"><li onClick={toggleMobile}>Community</li></Link>
+                                <Link to="/AddPost"><li onClick={toggleMobile}>Add Post</li></Link>
+                                <Link to="/ProfilePage"> <li onClick={toggleMobile}>My Activities</li></Link>
                                 
                             </ul>
                         </div>
@@ -67,6 +71,8 @@ function Navbar() {
             </div>
             
         </div>
+
+
         //     // {/* ===================================MEDIA QUERY========================================== */}
 
         // {/* <div className="Nav-mobile">

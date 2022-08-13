@@ -124,6 +124,9 @@ $font-family_1: Arial, Helvetica, sans-serif;
         border: double 2px transparent;;  
         border-radius: 20px;
         background-color: #F25F29AB;
+        font-size: 12px;
+        transition: .3s;
+
     }
 
     .chooseFile:hover {

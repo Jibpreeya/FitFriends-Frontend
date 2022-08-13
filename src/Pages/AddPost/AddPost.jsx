@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './Post.scss';
+import './AddPost.scss';
 import { Link } from 'react-router-dom';
 
 
-export const Post = () => {
+export const AddPost = () => {
     const options = [
         {id:'a', value: '', text: 'Name of Sport', disabled: true},
         {id:'b', value: 'running', text: 'Running'},

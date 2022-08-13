@@ -1,6 +1,5 @@
 import './CardMyActivites.css'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardMyActivites = (props) => {
     console.log(props.imageComment)

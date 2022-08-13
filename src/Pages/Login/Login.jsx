@@ -39,7 +39,7 @@ function Login() {
   return (
     <div className='login'>
       <form onSubmit={handleSubmit}>
-      <h1>FitFriends</h1>
+      <h1>LOG IN</h1>
        <div className='contentLogin'>
          <div className='listContentLogin'>
            <img src='src/images/username.png'/>

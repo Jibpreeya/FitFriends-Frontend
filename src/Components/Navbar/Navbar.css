@@ -1,79 +1,114 @@
-.Nav-content {
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+.Nav-content{
     display: flex;
     background-color: #24243E;
     width: 100%;
-    height: 100px;
+    height: 80px;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    border: 1px solid black;
+    
+}
+.logo {
+    background-image: linear-gradient(180deg, rgba(242,95,41,1) 0%, rgb(174, 10, 250) 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-left: 3rem;
 }
 
-.Nav-content .logo {
-    padding-left:25px;
-}
+/* .Nav-content1 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    height: 7rem;
 
-.logo img:hover {
-    transition: 0.5s;
-    transform: scale(1.1);
-}
-
-.menu {
-    margin-top: 3rem;
-}
-
+    height: 8rem;
+    height: 8rem;
+    max-height: 100%;
+    background-color: #46469C;
+} */
 .Nav-ul{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    text-decoration: none;
+}
+.Nav-ul ul {
+    background-color: #24243E;
+}
+.Nav-ul li {
+    background-color: #24243E;
+    padding: 10px 10px 10px 10px;
+    border-radius: 1.5rem;
+    margin-left:3rem;
+    color: white;
+    list-style: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    text-decoration: none;
+}
 
-    li  {
-        
-        background-color: #24243E;
-        padding: 10px 10px 10px 10px;
-        border-radius: 1.5rem;
-        margin-left:3rem;
-        color: white;
-        list-style: none;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        // font-weight: 600;
-        cursor: pointer; 
-    }
-
-    li:hover{
-        background-color: #F25F29;
-        color: white;
-    }
+.Nav-ul li:hover{
+    font-size: 1.4rem;
+    /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg); */
 }
 
 
-// .Nav-content a:hover{
-//     cursor: pointer;
-//     color:  #1b1b41;
-//     font-weight: bolder;
-// }
 
 
-// .Nav-content img{
-//     margin-top: 1rem;
-//     margin-left: .8rem;
-//     width: 8.5rem;
-//     height: 6rem;
     
-// }
+
+
+/* .Nav-mobile {
+    display: none;
+} */
+
+/* .Nav-content1 ul {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 7rem;
+} */
+
+
+.login-name :hover {
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg);
+}
+
 .Nav-content1 img {
     margin: 1.2rem auto;
     width: 6rem;
     height: auto;
 }
 
+.sign-in, .sign-up {
+    color: white;
+    text-decoration: none;
+}
 
+/* .Nav-content1 li {
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto;
 
-// .Nav-content li{
-//     display: flex;
-// }
-
+} */
 
 .login-name {
     /* margin: 1.5em; */
@@ -81,8 +116,13 @@
     padding-right: 25px;
     
 }
-
-
+.login-name a {
+    font-weight: 600
+}
+.login-name i {
+    font-size: 15px;
+    margin-right: 5px;
+}
 
 .login-name button {
     border-radius: 10px;
@@ -91,28 +131,10 @@
     width: 6rem;
     height: 3rem;
     padding: 10px 10px 10px 10px;
+    background-color: #AE0AFA;
     margin-right: 5px;
-    color: #ffffff;
-    background-color:#AE0AFA;
-
-    a {
-        font-weight: 500
-    }
-
-    i {
-        font-size: 15px;
-        margin-right: 5px;
-    }
-
+    border: #AE0AFA;
 }
-
-
-.login-name :hover {
-    cursor: pointer;
-    color: white;
-    background-color: #F25F29;
-}
-
 
 .toggle-bar i{
     font-size: 30px;
@@ -121,28 +143,20 @@
     cursor: pointer;
 }
 
-
-// .Nav-content li{
-//   list-style: none;
-//   justify-content: center;
-//   align-items: center;
-//   margin: auto auto;
-// }
-
 .tab-mobile{
     width:50%;
     height: 500px;
-    background-color: #24243E;
+    background-color: #46469C;
     position: absolute;
     right: -100%;
     top:80px;
-    transition: 300ms;
+    transition: 300ms
 }
 
 .tab-mobile.active {
     width:50%;
     height: 500px;
-    background-color: #24243E;
+    background-color: #46469C;
     position: absolute;
     right: 0;
     top:80px;
@@ -170,7 +184,7 @@
     width: 8em;
     height: 3rem;
     padding: 10px 10px 10px 10px;
-    background-color: #F25F29;
+    background-color: #F2A950;
     margin-bottom: 10px;
     font-size: 1rem;
     font-weight: 600;
@@ -181,10 +195,10 @@
 .mobile-login-name :hover {
     cursor: pointer;
     color: white;
-    background-color: #F25F29;
+    background-color: #fab869;
 }
 .mobile-nav-ul li {
-    background-color: #24243E;
+    background-color: #46469C;
     padding: 10px 10px 10px 10px;
     border-radius: 1.5rem;
     margin-top: 20px;
@@ -197,7 +211,7 @@
  
 }
 .mobile-nav-ul li:hover {
-    background-color: #F25F29;
+    background-color: #fab869;
     color: rgb(0, 0, 0);
 }
 
@@ -224,23 +238,27 @@
 /*
     .Nav-mobile {
         margin: auto;
-        background-color: #24243E;
+        background-color: #46469C;
         height: 6rem;
         display: flex;
         
     }
+
     .logo-mobile img {
         height: 5.5rem;
         width: 5rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
+
     }
+
     .Nav-ui-mobile {
         display: flex;
         justify-content: space-between;
         width: 100%;
         max-width: 100%;
     }
+
     .Nav-ui-mobile > #myLinks{
         display: flex;
         justify-content: space-between;
@@ -254,48 +272,58 @@
         border-radius: 2rem;
         margin-top: 0.75rem;
         margin-left: 3.5rem;
+
     }
+
     .login-name-mobile {
         padding-top: 1rem;
         padding-left: 1rem;
         max-width: 100%;
         
     }
+
     .login-name-mobile button {
         border-radius: 0.5rem;
         height: 4rem;
         width: 4rem;
         
     }
+
     .login-name-mobile button a {
         text-decoration: none;
     }
 }
+
 /* ==================== MEDIA QUERY ================== */
 /* 
 @media screen and (max-width :884px) {
     .Nav-content1 {
         display: none;
     }
+
     .Nav-mobile {
         margin: auto;
-        background-color: #24243E;
+        background-color: #46469C;
         height: 6rem;
         display: flex;
         
     }
+
     .logo-mobile img {
         height: 5.5rem;
         width: 5rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
+
     }
+
     .Nav-ui-mobile {
         display: flex;
         justify-content: space-between;
         width: 100%;
         max-width: 100%;
     }
+
     .Nav-ui-mobile > #myLinks{
         display: flex;
         justify-content: space-between;
@@ -309,7 +337,9 @@
         border-radius: 2rem;
         margin-top: 1.35rem;
         margin-left: 3.5rem;
+
     }
+
     .login-name-mobile {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -320,6 +350,7 @@
         
         
     }
+
     .login-name-mobile button {
         border-radius: 0.5rem;
         height: 3rem;
@@ -327,6 +358,7 @@
         gap: 1rem;
         
     }
+
     .login-name-mobile button a {
         text-decoration: none;
     }
@@ -340,26 +372,32 @@
     .Nav-content1 {
         display: none;
     }
+
     .Nav-mobile {
         margin: auto;
-        background-color: #24243E;
+        background-color: #46469C;
         height: 5.5rem;
         display: flex;
         justify-content: space-between;
     }
+
     .logo-mobile img {
         max-width: 100%;
         width: 6rem;
         height: 6rem;
         padding-left: 0.5rem;
     }
+
+
     .Nav-ui-mobile #myLinks img {
         width:2.5rem;
         height: 2rem;
         border-radius: 0.5rem;
         margin-top: 1.5rem;
         margin-left: 1.5rem;
+
     }
+
     .login-name-mobile {
         text-align: center;
         justify-content: center;
@@ -367,14 +405,17 @@
         padding: 1.55rem 1.98rem;
         max-width: 100%;
     }
+
     .login-name-mobile button {
         border-radius: 1rem;
         width: 3rem;
         height: 2rem;
     }
+
     .login-name-mobile button a {
         text-decoration: none;
     }
+
 } */
 
 /* ==================== MEDIA QUERY ================== */
@@ -383,37 +424,49 @@
     .Nav-content1 {
         display: none;
     }
+
     .Nav-mobile {
         margin: auto;
-        background-color: #24243E;
+        background-color: #46469C;
         height: 5rem;
         display: flex;
         justify-content: space-between;
     }
+
     .logo-mobile img {
         display: none;
     }
+
+
     .Nav-ui-mobile #myLinks {
         display: flex;
         justify-content: space-between;
         list-style: none;
         gap: 1rem;
     }
+
     .Nav-ui-mobile #myLinks img{
         display: grid;
         grid-template-columns: 1fr 1fr;
         list-style: none;
         margin-bottom: 2rem;
     }
+
     .login-name-mobile {
         padding-top: 1.3rem;
         max-width: 100%;
     }
+
+
     .login-name-mobile button {
         border-radius: 2rem;
     }
+
     .login-name-mobile button a {
         text-decoration: none;
     }
+
   
+
+
 }  */

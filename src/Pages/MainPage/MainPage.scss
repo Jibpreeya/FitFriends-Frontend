@@ -24,4 +24,16 @@
 .useronline {
     margin-top: 1.3rem; 
     background-color: #24243E;  
+
+       
+}
+
+.useronline-date {
+    display:flex;
+    flex-direction: column;
+}
+
+.DatePicker {
+    width: 14.5rem;
+
 }
