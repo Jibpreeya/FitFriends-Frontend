@@ -85,6 +85,32 @@ export const Post = () => {
                 {/* สร้างเงื่อนไขเวลาเลือก other มีปุ่มให้ add sport เอง */}
         </div>
 
+        <div className="content">
+        <label>Location</label>    
+            <input type="text"
+            className="locationInput"
+            name="location" 
+            placeholder="Share your location" 
+            value={form.location}
+            onChange={onChange}
+            required
+            />
+        </div>
+
+        <div className="content">
+        <label>Caption</label>    
+            <textarea type="text" 
+            name="caption" 
+            placeholder="What is your activity today?"
+            value={form.caption}
+            onChange={onChange}
+            required
+            maxLength="200"
+            rows="5" cols="50"
+            />
+        </div>
+
+
        <div className="content">
         <label>Date</label>
             <input type="date" 
@@ -109,31 +135,7 @@ export const Post = () => {
             onChange={onChange} />
         </div>
 
-        <div className="content">
-        <label>Location</label>    
-            <input type="text"
-            className="locationInput"
-            name="location" 
-            placeholder="Share your location" 
-            value={form.location}
-            onChange={onChange}
-            required
-            />
-        </div>
         
-        <div className="content">
-        <label>caption</label>    
-            <textarea type="text" 
-            name="caption" 
-            placeholder="what is your activity today?"
-            value={form.caption}
-            onChange={onChange}
-            required
-            maxLength="200"
-            rows="5" cols="50"
-            />
-        </div>
-
         <div className="content">
         <label>Photo</label>
             <input type="file"
@@ -141,15 +143,16 @@ export const Post = () => {
             name="images" 
             multiple accept="image/*" 
             onChange={onImageChange}
-             />
-            <p className="choosePhoto">Choose a photo</p>
-            {imageURLs.map((imageSrc, index) => (<img width="640" height="360" src={imageSrc} key={index} />))}
+            id="upload" hidden/>
+            <label for="upload" className="chooseFile">Choose file +</label>
+            {imageURLs.map((imageSrc, index) => (<img width="400" height="360" src={imageSrc} key={index} />))}
            {/* เวลาใส่ภาพจะพรีวิวรูปภาพด้วยตรงนี้  */}
         </div>
         
         <div className='buttonPost'>
             <button className="saveButton" type="submit">SAVE</button> 
-            <Link to='/MainPage'><button className="cancelButton" type="submit" >CANCEL</button></Link>
+            <button className="cancelButton" type="submit" >CANCEL</button>
+            {/* <Link to='/MainPage'><button className="cancelButton" type="submit" >CANCEL</button></Link> */}
         </div>  
         </form>
         </div>
