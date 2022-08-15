@@ -40,6 +40,14 @@
 
 .DatePicker {
     width: 14.5rem;
+    box-sizing: border-box;
+    border: double 2px transparent;  
+    border-radius: 20px;
+    background-image: linear-gradient(#D9D9D9, #D9D9D9), 
+            linear-gradient(to right, #F25F29,#DB4271,#CE3298, #AE0AFA);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
     
 }
 

@@ -7,19 +7,24 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 
 
+
 export default function DatePicker() {
   const [value, setValue] = React.useState(new Date('2022-08-10T21:11:54'));
+
+  
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
 
+
   return (
     <div className='DatePicker'>
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Stack spacing={3} >
+      
         <DesktopDatePicker
-          label="Date desktop"
+          // label="Date desktop"
           inputFormat="MM/dd/yyyy"
           value={value}
           onChange={handleChange}
