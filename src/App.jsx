@@ -20,10 +20,10 @@ function App() {
       {/* พื้นที่สำหรับรัน test แต่ละ page */}
         {/* <Navbar /> */}
         {/* <Login /> */}
-        {/* <Register /> */}
-        <MainPage />
+        {/* <Register />
+        <MainPage /> */}
         {/* <AddPost /> */}
-        {/* <ProfilePage /> */}
+        <ProfilePage />
 
       {/* <BrowserRouter>
         <Navbar /> */}

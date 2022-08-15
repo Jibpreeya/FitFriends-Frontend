@@ -4,7 +4,7 @@ import SideBar from '../../Components/Main-SideBar/SideBar'
 import Useronline from '../../Components/Main-UserOnline/UserOnline'
 import { Link } from 'react-router-dom';
 import Notification from '../../Components/Main-Notification/notification'
-// import DatePicker from '../../Components/Main-Date/Date'
+import DatePicker from '../../Components/Main-Date/Date'
 
 
 function MainPage() {
@@ -23,7 +23,7 @@ function MainPage() {
         </div>
         <div className='useronline-date'>
           <div className='DatePicker'>
-            {/* <DatePicker /> */}
+            <DatePicker wrapperClassName="date-picker"/>
           </div>
 
 
