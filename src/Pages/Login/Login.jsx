@@ -1,6 +1,9 @@
 import './Login.scss';
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import userImage from '../../images/username.png'
+import passwordImage from '../../images/password.png'
+
 
 function Login() {
   const [userLogin, setUserLogin] = useState({
@@ -42,7 +45,7 @@ function Login() {
       <h1>LOG IN</h1>
        <div className='contentLogin'>
          <div className='listContentLogin'>
-           <img src='src/images/username.png'/>
+           <img src={userImage}/>
            <input 
              type='text'
              name='username' 
@@ -52,7 +55,7 @@ function Login() {
              required/> 
          </div>
          <div className='listContentLogin'>
-           <img src='src/images/password.png'/>
+           <img src={passwordImage}/>
            <input 
             type='password' 
             name='password'
@@ -65,7 +68,7 @@ function Login() {
          </div>
          </div>
 
-        <button type='submit'>Login</button>
+        <button type='submit'>SIGN IN</button>
 
         <div className='underButton'>
           <h3><Link to='/MainPage'><span>May be Later</span></Link></h3>
