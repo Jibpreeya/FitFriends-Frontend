@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import './Register.scss';
 import React, { useState, useEffect } from 'react';
+import userImage from '../../images/username.png'
+import passwordImage from '../../images/password.png'
+import ageImage from '../../images/age.png'
+import heightImage from '../../images/height.png'
+import weightImage from '../../images/weight.png'
+import userphotoImage from '../../images/photo.png'
 
 function Register() {
   const [userRegister, setUserRegister] = useState({
@@ -111,7 +117,7 @@ function Register() {
          <div className='contentRegister'>
           
           <div className='listContentRegister'>
-            <img src='src/images/username.png'/>
+            <img src={userImage}/>
             <input 
               type='text'
               name='username' 
@@ -123,7 +129,7 @@ function Register() {
 
           {/* password */}
           <div className='listContentRegister'>
-            <img src='src/images/password.png'/>
+            <img src={passwordImage}/>
             <input 
               type='password' 
               name='password'
@@ -135,7 +141,7 @@ function Register() {
 
           {/* age */}
           <div className='listContentRegister'>
-            <img src='src/images/age.png'/>
+            <img src={ageImage}/>
             <input 
               type='number' 
               name='age'
@@ -147,7 +153,7 @@ function Register() {
 
           {/* height */}
           <div className='listContentRegister'>
-            <img src='src/images/height.png'/>
+            <img src={heightImage}/>
             <input 
               type='number' 
               name='height'
@@ -159,7 +165,7 @@ function Register() {
             
           {/* weight */}
           <div className='listContentRegister'>
-            <img src='src/images/weight.png'/>
+            <img src={weightImage}/>
             <input 
               type='number' 
               name='weight'
@@ -171,7 +177,7 @@ function Register() {
 
           {/* userPhoto */}
           <div className='listContentRegister'>
-            <img src='src/images/photo.png'/>
+            <img src={userphotoImage}/>
             <input type="file"
             className="inputPhoto" 
             name="userPhoto" 
