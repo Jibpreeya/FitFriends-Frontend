@@ -21,14 +21,14 @@ function App() {
         {/* <Navbar /> */}
         {/* <Login /> */}
         {/* <Register /> */}
-        <MainPage />
+        {/* <MainPage /> */}
         {/* <AddPost /> */}
         {/* <ProfilePage /> */}
 
-      {/* <BrowserRouter>
-        <Navbar /> */}
+      <BrowserRouter>
+        <Navbar />
         {/* นอก tag Routes คือการใส่ทุกหน้า */}
-        {/* <Routes>
+        <Routes>
 
           <Route path='/' element= {<Login />} />
           <Route path='/Register' element= {<Register />} />
@@ -38,7 +38,7 @@ function App() {
         </Routes>
 
 
-      </BrowserRouter> */}
+      </BrowserRouter>
   </div>
 
   )

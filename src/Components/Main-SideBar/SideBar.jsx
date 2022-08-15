@@ -8,7 +8,7 @@ import Aerobicicon from './Aerobicicon.png'
 import Strengthtrainningicon from './Strengthtrainningicon.png'
 import Othersicon from './Others.png'
 import Addposticon from './Addposticon.png'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   return (
@@ -21,8 +21,8 @@ const SideBar = () => {
       <a href='#Aerobic'><img className='Aerobicicon' src={Aerobicicon} alt="Aerobicicon" ></img></a>
       <a href='#Strengthtrainning'><img className='Strengthtrainningicon' src={Strengthtrainningicon} alt="Strengthtrainningicon" ></img></a>
       <a href='#Others'><img className='Othersicon' src={Othersicon} alt="Othersicon" ></img></a>
-      <img className='Addposticon' src={Addposticon} alt="Addposticon" ></img>
-      {/* <Link to='/Post'><img className='Addposticon' src={Addposticon} alt="Addposticon" ></img></Link> */}
+      {/* <img className='Addposticon' src={Addposticon} alt="Addposticon" ></img> */}
+      <Link to='/AddPost'><img className='Addposticon' src={Addposticon} alt="Addposticon" ></img></Link>
     </div>
     // </Router>  
   )

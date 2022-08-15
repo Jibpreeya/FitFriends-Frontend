@@ -151,7 +151,7 @@ export const AddPost = () => {
         
         <div className='buttonPost'>
             <button className="saveButton" type="submit">SAVE</button> 
-            <button className="cancelButton" type="submit" >CANCEL</button>
+            <button className="cancelButton" type="submit" ><Link to='/MainPage'>CANCEL</Link></button>
             {/* <Link to='/MainPage'><button className="cancelButton" type="submit" >CANCEL</button></Link> */}
         </div>  
         </form>
