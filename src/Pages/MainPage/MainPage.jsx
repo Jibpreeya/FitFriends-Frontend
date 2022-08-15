@@ -23,7 +23,7 @@ function MainPage() {
         </div>
         <div className='useronline-date'>
           <div className='DatePicker'>
-            {/* <DatePicker /> */}
+            <DatePicker wrapperClassName="date-picker"/>
           </div>
 
 

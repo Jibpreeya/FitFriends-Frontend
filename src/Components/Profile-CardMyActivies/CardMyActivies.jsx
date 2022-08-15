@@ -1,5 +1,6 @@
 import './CardMyActivites.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import imageComment from "../../images/garden1.jpg"
 
 const CardMyActivites = (props) => {
     console.log(props.imageComment)
@@ -38,7 +39,7 @@ const CardMyActivites = (props) => {
                    
                 </div>
                 <div className="image-comment">
-                    <img src="src/images/garden1.jpg" />
+                    <img src={imageComment} />
                     
                 </div>
             </div>
