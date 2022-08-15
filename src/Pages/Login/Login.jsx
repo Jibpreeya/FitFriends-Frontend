@@ -65,7 +65,7 @@ function Login() {
          </div>
          </div>
 
-        <button type='submit'>Login</button>
+        <button type='submit'>SIGN IN</button>
 
         <div className='underButton'>
           <h3><Link to='/MainPage'><span>May be Later</span></Link></h3>
