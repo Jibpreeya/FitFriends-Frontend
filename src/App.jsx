@@ -23,7 +23,7 @@ function App() {
         {/* <Register /> */}
         {/* <MainPage /> */}
         {/* <AddPost /> */}
-        {/* <ProfilePage /> */}
+        <ProfilePage />
 
       <BrowserRouter>
         <Navbar />

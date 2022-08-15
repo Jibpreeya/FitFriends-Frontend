@@ -3,6 +3,9 @@ import "./ProfilePage.css"
 import { useState } from "react";
 import MyActivites from "../../Components/Profile-MyActivites/MyActivities";
 
+import profilePicture from "../../images/avatar.png"
+
+
 const ProfilePage= () =>{
 
     const [profileData,setProfileData] = useState({name:"Michael Carrick",age:"20",height:"100",weight:"30",bmi:"16"})
@@ -12,7 +15,7 @@ const ProfilePage= () =>{
             <div className="box-profile-page">
                 <div className="user-profile">
                     <div className="profile-picture">
-                        <img src="src/images/avatar.png" 
+                        <img src={profilePicture}
                         alt="profile-picture"/>
                     </div>
                     <div className="profile-detail">

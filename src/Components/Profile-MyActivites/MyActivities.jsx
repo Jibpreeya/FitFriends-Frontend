@@ -4,6 +4,7 @@ import CardMyActivites from "../../Components/Profile-CardMyActivies/CardMyActiv
 import DropDown from "./DropDown";
 import "./MyActivites.css";
 
+import imageComment from "../../images/garden1.jpg"
 
 const MyActivites = () => {
 
@@ -18,7 +19,7 @@ const MyActivites = () => {
 // ])
 
     const textComment=" Simply dummy text of the printing and is simply dummy text of the printing and is simply dummy text of the printing and text of the printing and is simply dummy text of the printing and the printing "
-    const imageComment="./assert/garden1.jpg"
+    // const imageComment={imageComment}
     const location = "สวนจตุจักร"
     const date = "12/05/2022"
     const time = "08:00"
