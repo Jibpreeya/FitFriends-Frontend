@@ -7,6 +7,7 @@ import ageImage from '../../images/age.png'
 import heightImage from '../../images/height.png'
 import weightImage from '../../images/weight.png'
 import userphotoImage from '../../images/photo.png'
+import axios from "axios";
 
 function Register() {
   const [userRegister, setUserRegister] = useState({
@@ -26,21 +27,39 @@ function Register() {
   });
 
   const [userPhoto, setUserPhoto] = useState([]);
-  const [userPhotoURLs, setUserPhotoURLs] = useState([]);
+  // const [userPhotoURLs, setUserPhotoURLs] = useState([]);
 
-  useEffect(() => {
-    if (userPhoto.length < 1)return;
-    const newImageUrls = [];
-    userPhoto.forEach(userPhoto => newImageUrls.push(URL.createObjectURL(userPhoto)));
-    setUserPhotoURLs(newImageUrls);
-    setUserRegister({
-        ...userRegister,
-        userPhotoURLs: newImageUrls,
-        })
-  },[userPhoto]);
+  const [postImage, setPostImage] = useState({});
 
-  function onImageChange(e) {
+  const url = "http://localhost:8080/register";
+  const createImage = (newImage) => axios.post(url, newImage);
+
+  const createPost = async (post) => {
+    try {
+      await createImage(post);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  function onImageChange (e) {
     setUserPhoto([...e.target.files]);
+    const file = e.target.files[0];
+    const base64 = convertToBase64(file);
+    setUserRegister({ ...userRegister, user_photo: base64 });
   }
 
   // checking register validation
@@ -89,23 +108,36 @@ function Register() {
     setUserRegister ({...userRegister, [event.target.name]: event.target.value})
   };
 
-  useEffect(() => {
-    const weight = userRegister.weight;
-    const height = userRegister.height;
-    if (height.length < 1)return;
-      const userBmi = weight/(height*height) ;
-      setUserRegister({
-        ...userRegister,
-        BMI: userBmi
-        })
-    },[userRegister.height && userRegister.weight]);
+  // useEffect(() => {
+  //   if (userPhoto.length < 1)return;
+  //   const newImageUrls = [];
+  //   userPhoto.forEach(userPhoto => newImageUrls.push(URL.createObjectURL(userPhoto)));
+  //   setUserPhotoURLs(newImageUrls);
+  //   setUserRegister({
+  //       ...userRegister,
+  //       userPhotoURLs: newImageUrls,
+  //       })
+  // },[userPhoto]);
+
+  // useEffect(() => {
+  //   const weight = userRegister.weight;
+  //   const height = userRegister.height;
+  //   if (height.length < 1)return;
+  //     const userBmi = weight/(height*height) ;
+  //     setUserRegister({
+  //       ...userRegister,
+  //       BMI: userBmi
+  //       })
+  //   },[userRegister.height && userRegister.weight]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // bmi (userRegister.weight, userRegister.height);
-    console.log(userRegister);
     // preventDefault ไม่ให้ browser reload
+    createPost(postImage);
+    console.log (userRegister);
     registerValidation();
+
   };
 
   return (
