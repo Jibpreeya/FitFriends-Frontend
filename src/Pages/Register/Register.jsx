@@ -9,6 +9,7 @@ import weightImage from '../../images/weight.png'
 import userphotoImage from '../../images/photo.png'
 import axios from "axios";
 
+
 function Register() {
   const [userRegister, setUserRegister] = useState({
     username: '',
@@ -16,7 +17,10 @@ function Register() {
     age: '',
     height: '',
     weight: '',
+    BMI: '',
   });
+
+  const [postImage, setPostImage] = useState({});
 
   const [checkingRegisterValidation, setCheckingRegisterValidation] = useState({
     username: '',
@@ -25,42 +29,6 @@ function Register() {
     height: '',
     weight: '',
   });
-
-  const [userPhoto, setUserPhoto] = useState([]);
-  // const [userPhotoURLs, setUserPhotoURLs] = useState([]);
-
-  const [postImage, setPostImage] = useState({});
-
-  const url = "http://localhost:8080/register";
-  const createImage = (newImage) => axios.post(url, newImage);
-
-  const createPost = async (post) => {
-    try {
-      await createImage(post);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
-  function onImageChange (e) {
-    setUserPhoto([...e.target.files]);
-    const file = e.target.files[0];
-    const base64 = convertToBase64(file);
-    setUserRegister({ ...userRegister, user_photo: base64 });
-  }
 
   // checking register validation
   const registerValidation = () => {
@@ -104,40 +72,75 @@ function Register() {
     return setCheckingRegisterValidation(errors)
   };
 
+// BMICalculation
+  useEffect(() => {
+    const weight = userRegister.weight;
+    const height = userRegister.height;
+    if (height.length < 1)return;
+      const userBmi = weight/(height*height) ;
+      setUserRegister({
+        ...userRegister,
+        BMI: userBmi
+        })
+    },[userRegister.height && userRegister.weight]);
+
+    // const url = "http://localhost:9000/users/register";
+    // const createImage = (newImage) => axios.post(url, newImage);
+    
+    //   const createPost = async (post) => {
+    //     try {
+    //       await createImage(post);
+    //     } catch (error) {
+    //       console.log(error.message);
+    //     }
+    //   };
+    
+      const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          };
+          fileReader.onerror = (error) => {
+            reject(error);
+          };
+        });
+      };
+      const handleFileUpload = async (e) => {
+        const file = e.target.files[0];
+        const base64 = await convertToBase64(file);
+        setPostImage({ ...postImage, user_photo: base64 });
+      };
+    
   const handleChange = (event) => {
     setUserRegister ({...userRegister, [event.target.name]: event.target.value})
   };
 
-  // useEffect(() => {
-  //   if (userPhoto.length < 1)return;
-  //   const newImageUrls = [];
-  //   userPhoto.forEach(userPhoto => newImageUrls.push(URL.createObjectURL(userPhoto)));
-  //   setUserPhotoURLs(newImageUrls);
-  //   setUserRegister({
-  //       ...userRegister,
-  //       userPhotoURLs: newImageUrls,
-  //       })
-  // },[userPhoto]);
+  const connentToBackend = async () => {
+    const headers = {
+      'Content-Type':'application/json'
+    }
 
-  // useEffect(() => {
-  //   const weight = userRegister.weight;
-  //   const height = userRegister.height;
-  //   if (height.length < 1)return;
-  //     const userBmi = weight/(height*height) ;
-  //     setUserRegister({
-  //       ...userRegister,
-  //       BMI: userBmi
-  //       })
-  //   },[userRegister.height && userRegister.weight]);
+    const postData = {
+      "username": userRegister.username,
+      "password": userRegister.password,
+      "age": userRegister.age,
+      "weight": userRegister.weight,
+      "height": userRegister.height,
+      "bmi": userRegister.BMI,
+      "user_photo": postImage.user_photo
+    }  
+    console.log (postData);
+    await axios.post('http://localhost:9000/users/register', postData, {headers:headers}).then((res)=>{
+    console.log(res)
+    })
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // bmi (userRegister.weight, userRegister.height);
-    // preventDefault ไม่ให้ browser reload
-    createPost(postImage);
-    console.log (userRegister);
-    registerValidation();
-
+  const handleSubmit = async (event) => {
+    event.preventDefault ();
+    await registerValidation ();
+    await connentToBackend ();
   };
 
   return (
@@ -212,9 +215,9 @@ function Register() {
             <img src={userphotoImage}/>
             <input type="file"
             className="inputPhoto" 
-            name="userPhoto" 
-            multiple accept="userPhoto/*" 
-            onChange={onImageChange}
+            name="user_photo" 
+            multiple accept="user_photo/*" 
+            onChange={(e) => handleFileUpload(e)}
              />
             {/* <p className="choosePhoto">Choose a photo</p> */}
             {/* {userPhotoURLs.map((imageSrc, index) => (<img width="300" height="300" src={imageSrc} key={index} />))} */}
