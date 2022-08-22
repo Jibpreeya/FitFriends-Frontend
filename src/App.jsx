@@ -8,6 +8,7 @@ import Register from './Pages/Register/Register';
 import MainPage from './Pages/MainPage/MainPage';
 import { AddPost } from './Pages/AddPost/AddPost';
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
+import { EditPost } from './Pages/EditPost/EditPost';
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/MainPage' element= {<MainPage />} />
           <Route path='/AddPost' element= {<AddPost />} />
           <Route path='/ProfilePage' element= {<ProfilePage />} />
+          <Route path='/EditPost' element= {<EditPost />} />
         </Routes>
 
 

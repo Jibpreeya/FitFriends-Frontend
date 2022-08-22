@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import dateFormat, { masks } from "dateformat";
-import './AddPost.scss';
+import './EditPost.scss';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
-export const AddPost = () => {
+export const EditPost = () => {
+    const [activityData,setActivityData] = useState([])
+    const activityId = "66302f4d3918f03eee7a730cf"
+    useEffect(() => {
+        const url = `http://localhost:9000/activities/${activityId}`
+        axios.get(`${url}`)
+        .then((res) => { setActivityData(res.data)})
+        console.log(res.data)
+        console.log(activityData)
+    }
+        , [])
     const options = [
         {id:'a', value: '', text: 'Name of Sport', disabled: true},
         {id:'b', value: 'running', text: 'Running'},
@@ -81,16 +91,13 @@ export const AddPost = () => {
             "sport_photo": images.sport_photo
         }
         console.log (addActivity);
-        await axios.post('http://localhost:9000/users/activity', addActivity, {headers:headers}).then((res)=>{
+        await axios.post('http://localhost:9000/activity', addActivity, {headers:headers}).then((res)=>{
         
         console.log(res)
         })
    
     }
-        // // ส่งข้อมูลขึ้นใหม่
-        // function onImageChange(e) {
-        //     setImages([...e.target.files]);
-        // }
+        
 
         const onSubmits = async (e) => {
           e.preventDefault();
@@ -101,7 +108,7 @@ export const AddPost = () => {
 
     return (
         <div className="PostForm">
-        <h1>Post</h1>
+        <h1>Edit Post</h1>
         <form onSubmit={onSubmits}>
 
         <div className="content">
@@ -120,7 +127,7 @@ export const AddPost = () => {
                 onChange={onChange}
                 value={form.addSport}
                 placeholder='Add Sport...'/>}    
-                {/* สร้างเงื่อนไขเวลาเลือก other มีปุ่มให้ add sport เอง */}
+                
         </div>
 
         <div className="content">
@@ -175,6 +182,7 @@ export const AddPost = () => {
             onChange={onChange} />
         </div>
 
+
         
         <div className="content">
         <label>Photo</label>
@@ -185,8 +193,6 @@ export const AddPost = () => {
             onChange={(e) => handleFileUpload(e)}
             id="upload" hidden/>
             <label htmlFor="upload" className="chooseFile">Choose file +</label>
-            {/* {images.map((imageSrc, index) => (<img width="400" height="360" src={imageSrc} key={index} />))} */}
-           {/* เวลาใส่ภาพจะพรีวิวรูปภาพด้วยตรงนี้  */}
         </div>
         
         <div className='buttonPost'>
