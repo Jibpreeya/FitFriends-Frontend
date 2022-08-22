@@ -5,61 +5,115 @@
     align-items: center;
     z-index: 2;
     padding-top: 1rem;
-    // padding-bottom: 1rem;
-   
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.btn{
+    color: white;
+    background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
+    background-size: 100%;
+    cursor: pointer;
+    width: 80%;
+    padding-top: 1.2rem;
+    padding-bottom: 1.5rem;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+
 .SideBar .Runingicon {
-    width: 10rem;
-    height: 4rem;
-    background-color:  #2D2D4B;
-    margin-left: 2rem;
+    position: relative;  
     
 }
 
 .SideBar .Joggingicon {
-    height: 4.375rem;
-    background-color:  #2D2D4B;
-    margin-left: 1.5rem;
+    position: relative;;
 }
 
 .SideBar .Swimmingicon {
-    height: 4.375rem;
-    background-color:  #2D2D4B;
-    margin-left: 1.5rem;
+    position: relative;
 }
 
 .SideBar .Yogaicon {
-    height: 4.375rem;
-    background-color:  #2D2D4B;
-    margin-left: 1.5rem;
+    position: relative;
 }
 
 .SideBar .Aerobicicon {
-    height: 4.375rem;
-    background-color:  #2D2D4B;
-    margin-left: 1.5rem;
+    position: relative;
 }
 
-.SideBar .Strengthtrainningicon {
-    height: 4.375rem;
-    background-color:  #2D2D4B;
-    margin-left: 1.5rem;
+.SideBar .Strengthtrainingicon {
+    position: relative;
    
+}
+.SideBar .Addposticon {
+    position: relative;
+    padding-top: 1.4rem;
+    
 }
 
 .SideBar .Othersicon {
-    height: 4.375rem;
-    margin-left: 1.5rem;
-    background-color:  #2D2D4B;
-    
-    
+    position: relative;
+    padding-top: 1.4rem;
+}
+
+// icon img
+
+.Runingicon img {
+    height: 1.7rem;
+}
+
+.Joggingicon img {
+    height: 1.7rem;
+}
+
+.Swimmingicon img {
+    height: 1.7rem;
+    margin-right: .3rem;
+}
+
+.Yogaicon img {
+    height: 1.7rem;
+    margin-right: .3rem;
 }
 
 
-.SideBar .Addposticon {
-    height: 4.9rem;
-    background-color:  #2D2D4B;
-    margin-left: 1.8rem;
-    
+.Aerobicicon img {
+    height: 1.7rem;
 }
+
+.Strengthtrainingicon img {
+    height: 1.7rem;
+    margin-right: 0.5rem;
+   
+}
+
+.SideBar .Addposticon  {
+    margin-right: 0.5rem;
+    color: white;
+    background-color: #AE0AFA;
+    background-size: 100%;
+    cursor: pointer;
+    width: 80%;
+    padding-top: 1.2rem;
+    padding-bottom: 1.5rem;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.SideBar .Addposticon:hover {
+    background-color: #F25F29;
+    transform: scale(1.1);
+}
+

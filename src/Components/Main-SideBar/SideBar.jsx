@@ -5,24 +5,38 @@ import Joggingicon from './Joggingicon.png'
 import Swimmingicon from './Swimmingicon.png'
 import Yogaicon from './Yogaicon.png'
 import Aerobicicon from './Aerobicicon.png'
-import Strengthtrainningicon from './Strengthtrainningicon.png'
-import Othersicon from './Others.png'
-import Addposticon from './Addposticon.png'
-import { Link } from 'react-router-dom';
+import Strengthtrainingicon from './Strengthtrainingicon.png'
+import {  BrowserRouter as Router,Link } from 'react-router-dom';
+import Notification from '../Main-Notification/notification';
+import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
+
+  let navigate = useNavigate();
+  const runningNotiCount = 10
+  const JoggingNotiCount = 0
+  const SwimmingNotiCount = 2
+  const YogaNotiCount = 0
+  const AerobicNotiCount = 3
+  const StrengthtrainingNotiCount = 30
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    navigate("/Post", { replace: true });
+  }
+
   return (
     // <Router>
     <div className='SideBar'>
-      <a href='#Running'><img className='Runingicon' src={Runningicon} alt="Runningicon" ></img></a>
-      <a href='#Jogging'><img className='Joggingicon' src={Joggingicon} alt="Joggingicon" ></img></a>
-      <a href='#Swimming'><img className='Swimmingicon' src={Swimmingicon} alt="Swimmingicon" ></img></a>
-      <a href='#Yoga'><img className='Yogaicon' src={Yogaicon} alt="Yogaicon" ></img></a>
-      <a href='#Aerobic'><img className='Aerobicicon' src={Aerobicicon} alt="Aerobicicon" ></img></a>
-      <a href='#Strengthtrainning'><img className='Strengthtrainningicon' src={Strengthtrainningicon} alt="Strengthtrainningicon" ></img></a>
-      <a href='#Others'><img className='Othersicon' src={Othersicon} alt="Othersicon" ></img></a>
-      {/* <img className='Addposticon' src={Addposticon} alt="Addposticon" ></img> */}
-      <Link to='/AddPost'><img className='Addposticon' src={Addposticon} alt="Addposticon" ></img></Link>
+      <button className='btn Runingicon'><img src={Runningicon}/>running<Notification count={runningNotiCount} /></button>
+      <button className='btn Joggingicon'><img src={Joggingicon}/>Jogging<Notification count={JoggingNotiCount} /></button>
+      <button className='btn Swimmingicon'><img src={Swimmingicon}/>Swimming<Notification count={SwimmingNotiCount} /></button>
+      <button className='btn Yogaicon'><img src={Yogaicon}/>Yoga<Notification count={YogaNotiCount} /></button>
+      <button className='btn Aerobicicon'><img src={Aerobicicon}/>Aerobic<Notification count={AerobicNotiCount} /></button>
+      <button className='btn Strengthtrainingicon'><img src={Strengthtrainingicon}/>Strength<Notification count={StrengthtrainingNotiCount} /></button>
+      <button className='btn Othersicon'>Others</button>
+
+      <button onClick={handleSubmit} className='Addposticon'>+ Addpost</button>
     </div>
     // </Router>  
   )
