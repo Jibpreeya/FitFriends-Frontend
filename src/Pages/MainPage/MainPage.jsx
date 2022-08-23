@@ -5,7 +5,7 @@ import SideBar from "../../Components/Main-SideBar/SideBar";
 import Useronline from "../../Components/Main-UserOnline/UserOnline";
 import { Link } from "react-router-dom";
 // import DatePicker from '../../components/MainPage/Date/Date';
-import Notification from "../../components/Main-Notification/notification";
+import Notification from "../../Components/Main-Notification/notification";
 import axios from "axios";
 import dateFormat from "dateformat";
 
