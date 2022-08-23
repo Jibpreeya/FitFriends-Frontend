@@ -68,7 +68,7 @@ const SideBar = (props) => {
       <button onClick={()=>props.groupActivity(5)}className='btn Aerobicicon'><img src={Aerobicicon} />Aerobic<Notification count={AerobicNotiCount} /></button>
       <button onClick={()=>props.groupActivity(6)}className='btn Strengthtrainingicon'><img src={Strengthtrainingicon} />Strengh<Notification count={StrengthtrainningNotiCount} /></button>
       <button onClick={()=>props.groupActivity(7)}className='btn Othersicon'>Others<Notification count={OthersNotiCount} /></button>
-      {/* <button onClick={handleSubmit} className='btn Addposticon'>Addpost</button> */}
+      <button onClick={handleSubmit} className='btn Addposticon'>Addpost</button>
       {/* <button onClick={handleSubmit} className='btn Addposticon'><img src={Plusicon} />Addpost</button> */}
 
     </div>

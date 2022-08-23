@@ -1,6 +1,6 @@
 import "./MainPage.scss";
 import React, { useState, useEffect, useInsertionEffect } from "react";
-import CommunityBox from "../../components/Main-CommunityBox/CommunityBox";
+import CommunityBox from "../../Components/Main-CommunityBox/CommunityBox";
 import SideBar from "../../components/Main-SideBar/SideBar";
 import Useronline from "../../components/Main-UserOnline/UserOnline";
 import { Link } from "react-router-dom";
