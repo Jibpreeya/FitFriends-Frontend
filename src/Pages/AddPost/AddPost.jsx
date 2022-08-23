@@ -12,7 +12,7 @@ export const AddPost = () => {
         {id:'d', value: 'yoga', text: 'Yoga'},
         {id:'e', value: 'aerobic', text: 'Aerobic'},
         {id:'f', value: 'strength Training', text: 'Strength Training'},
-        {id:'g', value: 'swimming', text: 'swimming'},
+        {id:'g', value: 'swimming', text: 'Swimming'},
         {id:'j', value: 'other', text: 'Other'},
       ];
 
@@ -176,8 +176,8 @@ export const AddPost = () => {
             name="sport_photo" 
             multiple accept="sport_photo/*" 
             onChange={(e) => handleFileUpload(e)}
-            id="upload" hidden/>
-            <label htmlFor="upload" className="chooseFile">Choose file +</label>
+           />
+            {/* <label htmlFor="upload" className="chooseFile">Choose file +</label> */}
             {/* {images.map((imageSrc, index) => (<img width="400" height="360" src={imageSrc} key={index} />))} */}
            {/* เวลาใส่ภาพจะพรีวิวรูปภาพด้วยตรงนี้  */}
         </div>

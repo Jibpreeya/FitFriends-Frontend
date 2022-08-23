@@ -6,7 +6,7 @@ import axios from "axios";
 
 export const EditPost = () => {
   const [activityData, setActivityData] = useState([]);
-  const activityId = "63039e74f5fca2cc74cc7a4f";
+  const activityId = "63034cb344b74d1fde325dc5";
   useEffect(() => {
     console.log("hello");
     const url = `http://localhost:9000/activities/${activityId}`;
@@ -16,6 +16,7 @@ export const EditPost = () => {
       setActivityData(res.data);
     });
     console.log(activityData);
+
   }, []);
 
   const options = [
@@ -38,7 +39,9 @@ export const EditPost = () => {
     caption: "",
   });
 
-  const [images, setImages] = useState({});
+  const [images, setImages] = useState({
+    sport_photo: "",
+  });
   
 
   
@@ -202,8 +205,7 @@ export const EditPost = () => {
             type="file"
             className="inputPhoto"
             name="sport_photo"
-            multiple
-            accept="sport_photo/*"
+            multiple accept="sport_photo/*"
             onChange={(e) => handleFileUpload(e)}
             id="upload"
             hidden
@@ -213,9 +215,9 @@ export const EditPost = () => {
               htmlFor="upload"
               className="chooseFile"
               value={activityData.sport_photo}
-            >
-              {/* <img width="100" height="100" src={images == undefined ? activityData.sport_photo : images.sport_photo } /> */}
-              <img width="100" height="100" src={images.sport_photo} />
+            > 
+              <img width="100" height="100" src={images.sport_photo == "" ? activityData.sport_photo : images.sport_photo  } />
+              {/* <img width="100" height="100" src={images.sport_photo} /> */}
             </label>
           
         </div>
