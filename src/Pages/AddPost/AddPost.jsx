@@ -13,8 +13,6 @@ export const AddPost = () => {
         {id:'e', value: 'aerobic', text: 'Aerobic'},
         {id:'f', value: 'strength Training', text: 'Strength Training'},
         {id:'g', value: 'swimming', text: 'swimming'},
-        {id:'h', value: 'dance', text: 'Dance'},
-        {id:'i', value: 'boxing', text: 'Boxing'},
         {id:'j', value: 'other', text: 'Other'},
       ];
 
