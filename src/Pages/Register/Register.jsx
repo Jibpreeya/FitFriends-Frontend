@@ -117,7 +117,7 @@ function Register() {
     setUserRegister ({...userRegister, [event.target.name]: event.target.value})
   };
 
-  const connentToBackend = async () => {
+  const connectToBackend = async () => {
     const headers = {
       'Content-Type':'application/json'
     }
@@ -140,7 +140,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault ();
     await registerValidation ();
-    await connentToBackend ();
+    await connectToBackend ();
   };
 
   return (

@@ -11,7 +11,7 @@ const CardMyActivites = (props) => {
                 <div className="header-comment">
                     <div className = "button-edit">
                         <i className="fas fa-pen"></i>
-                        <span><Link to='/EditPost'>Edit</Link></span>
+                        <Link to='/EditPost'><span>Edit</span></Link>
                     </div>
                     <div className = "button-delete">
                         <i className="fas fa-trash-alt"></i>
