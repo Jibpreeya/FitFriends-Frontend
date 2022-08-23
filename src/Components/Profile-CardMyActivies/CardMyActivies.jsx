@@ -10,11 +10,11 @@ const CardMyActivites = (props) => {
             <div className='gird-container'>
                 <div className="header-comment">
                     <div className = "button-edit">
-                        <i className="fas fa-pen"></i>
+                        <i class="fas fa-pen"></i>
                         <Link to='/EditPost'><span>Edit</span></Link>
                     </div>
                     <div className = "button-delete">
-                        <i className="fas fa-trash-alt"></i>
+                        <i class="fas fa-trash-alt"></i>
                         <span>Delete</span>
                     </div>
                     

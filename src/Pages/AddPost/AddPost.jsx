@@ -12,13 +12,11 @@ export const AddPost = () => {
         {id:'d', value: 'yoga', text: 'Yoga'},
         {id:'e', value: 'aerobic', text: 'Aerobic'},
         {id:'f', value: 'strength Training', text: 'Strength Training'},
-        {id:'g', value: 'swimming', text: 'swimming'},
-        {id:'h', value: 'dance', text: 'Dance'},
-        {id:'i', value: 'boxing', text: 'Boxing'},
+        {id:'g', value: 'swimming', text: 'Swimming'},
         {id:'j', value: 'other', text: 'Other'},
       ];
 
-    
+  
       const [form, setForm] = useState({
         selected: '',
         date: '',
@@ -31,11 +29,10 @@ export const AddPost = () => {
       
     const [images, setImages] = useState({});
 
-    // const [imageURLs, setImagesURLs] = useState([]);
+    
 
     
-    // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
-    // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
+    
     const convertToBase64 = (file) => {
         return new Promise((resolve, reject) => {
           const fileReader = new FileReader();
@@ -87,11 +84,7 @@ export const AddPost = () => {
         })
    
     }
-        // // ส่งข้อมูลขึ้นใหม่
-        // function onImageChange(e) {
-        //     setImages([...e.target.files]);
-        // }
-
+       
         const onSubmits = async (e) => {
           e.preventDefault();
           console.log(form);
@@ -183,8 +176,8 @@ export const AddPost = () => {
             name="sport_photo" 
             multiple accept="sport_photo/*" 
             onChange={(e) => handleFileUpload(e)}
-            id="upload" hidden/>
-            <label htmlFor="upload" className="chooseFile">Choose file +</label>
+           />
+            {/* <label htmlFor="upload" className="chooseFile">Choose file +</label> */}
             {/* {images.map((imageSrc, index) => (<img width="400" height="360" src={imageSrc} key={index} />))} */}
            {/* เวลาใส่ภาพจะพรีวิวรูปภาพด้วยตรงนี้  */}
         </div>

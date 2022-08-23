@@ -6,7 +6,7 @@ import axios from "axios";
 
 export const EditPost = () => {
   const [activityData, setActivityData] = useState([]);
-  const activityId = "63039e74f5fca2cc74cc7a4f";
+  const activityId = "63034cb344b74d1fde325dc5";
   useEffect(() => {
     console.log("hello");
     const url = `http://localhost:9000/activities/${activityId}`;
@@ -16,19 +16,18 @@ export const EditPost = () => {
       setActivityData(res.data);
     });
     console.log(activityData);
+
   }, []);
 
   const options = [
     { id: "a", value: "", text: "Name of Sport", disabled: true },
-    { id: "b", value: "running", text: "Running" },
-    { id: "c", value: "jogging", text: "Jogging" },
-    { id: "d", value: "yoga", text: "Yoga" },
-    { id: "e", value: "aerobic", text: "Aerobic" },
-    { id: "f", value: "strength Training", text: "Strength Training" },
-    { id: "g", value: "swimming", text: "swimming" },
-    { id: "h", value: "dance", text: "Dance" },
-    { id: "i", value: "boxing", text: "Boxing" },
-    { id: "j", value: "other", text: "Other" },
+    {id:'b', value: 'running', text: 'Running'},
+    {id:'c', value: 'jogging', text: 'Jogging'},
+    {id:'d', value: 'yoga', text: 'Yoga'},
+    {id:'e', value: 'aerobic', text: 'Aerobic'},
+    {id:'f', value: 'strength Training', text: 'Strength Training'},
+    {id:'g', value: 'swimming', text: 'swimming'},
+    {id:'j', value: 'other', text: 'Other'},
   ];
 
   const [form, setForm] = useState({
@@ -40,13 +39,12 @@ export const EditPost = () => {
     caption: "",
   });
 
-  const [images, setImages] = useState({});
-  // const [showImage, setShowImage] = useState(true);
+  const [images, setImages] = useState({
+    sport_photo: "",
+  });
+  
 
-  // const [imageURLs, setImagesURLs] = useState([]);
-
-  // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
-  // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
+  
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -88,7 +86,7 @@ export const EditPost = () => {
       time_start: timeStart,
       time_end: timeEnd,
       location: activityData.location,
-      captions: activityData.caption,
+      captions: activityData.captions,
       sport_photo: images.sport_photo,
     };
     console.log(addActivity);
@@ -207,8 +205,7 @@ export const EditPost = () => {
             type="file"
             className="inputPhoto"
             name="sport_photo"
-            multiple
-            accept="sport_photo/*"
+            multiple accept="sport_photo/*"
             onChange={(e) => handleFileUpload(e)}
             id="upload"
             hidden
@@ -218,9 +215,9 @@ export const EditPost = () => {
               htmlFor="upload"
               className="chooseFile"
               value={activityData.sport_photo}
-            >
-              {/* <img width="100" height="100" src={images == undefined ? activityData.sport_photo : images.sport_photo } /> */}
-              <img width="100" height="100" src={images.sport_photo} />
+            > 
+              <img width="100" height="100" src={images.sport_photo == "" ? activityData.sport_photo : images.sport_photo  } />
+              {/* <img width="100" height="100" src={images.sport_photo} /> */}
             </label>
           
         </div>
