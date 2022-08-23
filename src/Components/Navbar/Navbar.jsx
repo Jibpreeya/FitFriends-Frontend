@@ -1,9 +1,7 @@
-
 import React from "react";
 import './Navbar.css';
 import {useState} from 'react'
 import { Link } from "react-router-dom";
-
 function Navbar() {
     const [tabMobile,setTabMobile] = useState(false)
     const [showNavbar,setShowNavbar] = useState(true)
@@ -12,39 +10,35 @@ function Navbar() {
     }
     const setNavBar = ()=>{
         
-        if(window.scrollY >=100){
+        if(window.scrollY >=200){
             setShowNavbar(false)
         } else {
             setShowNavbar(true)
         }
     }
-
     window.addEventListener('scroll',setNavBar)
     return (
         <div className={showNavbar ? 'Nav-content':'Nav-content hide'}>
             <div className="Nav-content1">
                 <div className="logo">
-
-                    {/* <a href="#home"><img src="/images/logo-removebg-preview.png" /></a> */}
                     <Link to="/MainPage">Fitfriend</Link>
-
+                    {/* <a href="#home"><img src="/images/logo-removebg-preview.png" /></a> */}
                 </div>
             </div>
             <div className="ul">
                 <ul className="Nav-ul">
-
-                    <Link to="/MainPage"><li>Community</li></Link>
-                    <Link to="/AddPost"><li>Add Post</li></Link>
-                    <Link to="/ProfilePage"><li>My Activities</li></Link>
-
+                    <li><Link style={{textDecoration: 'none',color:"white"}} to = {"/"}>Community</Link></li>
+                    <li><Link style={{textDecoration: 'none',color:"white"}} to = {"/addpost"}>Add Post</Link></li>
+                    <li><Link style={{textDecoration: 'none',color:"white"}} to = {"/myactivities"}>My Activities</Link></li>
                     
                 </ul>
             </div>
          
             <div className="login-name">
-
-                    <button><Link to="/" className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>Login</Link></button>
-                    <button><Link to="/Register" className="sign-up"><i className="fa-solid fa-user-plus"></i>Register</Link></button>
+                    <button id='#' className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>
+                    <Link style={{textDecoration: 'none',color:"black"}} to = {"/login"}>Sign in</Link></button>
+                    <button id='#' className="sign-up"><i className="fa-solid fa-user-plus"></i>
+                    <Link style={{textDecoration: 'none',color:"black"}} to = {"/register"}>Sign up</Link></button>
             </div>
             <div className="nav-mobile">
                 <div className="toggle-bar">
@@ -53,14 +47,16 @@ function Navbar() {
                 <div className={tabMobile ? "tab-mobile active":"tab-mobile"}>
                     <div className="container-mobile">
                         <div className="mobile-login-name">
-                            <button onClick={toggleMobile}><Link to="/" className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>Sign in</Link></button>
-                            <button onClick={toggleMobile}><Link to="/Register" className="sign-up"><i className="fa-solid fa-user-plus"></i>Sign up</Link></button>
+                            <button onClick={toggleMobile}><i className="fa-solid fa-right-to-bracket sign-in" id='#'></i>
+                                <Link style={{textDecoration: 'none',color:"black"}} to = {"/login"}>Sign in</Link></button>
+                            <button onClick={toggleMobile}><i className="fa-solid fa-user-plus sign-up" id='#'></i>
+                            <Link style={{textDecoration: 'none',color:"black"}} to = {"/register"}>Sign up</Link></button>
                         </div>
                         <div className = "mobile-ul">
                             <ul className="mobile-nav-ul">
-                                <Link to="/MainPage"><li onClick={toggleMobile}>Community</li></Link>
-                                <Link to="/AddPost"><li onClick={toggleMobile}>Add Post</li></Link>
-                                <Link to="/ProfilePage"> <li onClick={toggleMobile}>My Activities</li></Link>
+                                <li onClick={toggleMobile}><Link style={{textDecoration: 'none',color:"white"}} to = {"/"}>Community</Link></li>
+                                <li onClick={toggleMobile}><Link style={{textDecoration: 'none',color:"white"}} to = {"/addpost"}>Add Post</Link></li>
+                                <li onClick={toggleMobile}><Link style={{textDecoration: 'none',color:"white"}} to = {"/myactivites"}>My Activities</Link></li>
                                 
                             </ul>
                         </div>
@@ -71,7 +67,6 @@ function Navbar() {
             </div>
             
         </div>
-
 
         //     // {/* ===================================MEDIA QUERY========================================== */}
 
@@ -105,6 +100,5 @@ function Navbar() {
     )
 };
 
-     
 
-export default Navbar;
+export default Navbar

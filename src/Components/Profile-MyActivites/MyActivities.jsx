@@ -1,32 +1,70 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 // import MuiSelect from "./DropDown";
-import CardMyActivites from "../../Components/Profile-CardMyActivies/CardMyActivies";
+import CardMyActivites from "../Profile-CardMyActivies/CardMyActivies";
 import DropDown from "./DropDown";
 import "./MyActivites.css";
+import axios from "axios";
+import dateFormat from "dateformat";
+import Swal from 'sweetalert2'
+import config from "../../../config";
+const MyActivites = (props) => {
+    const url=config.url
+    const [filterWeek,setFilterWeek] = useState(1)
+    const username_id = props.userId
+    
+    let date_start = new Date()
+    let date_end = new Date()
+    date_end.setDate(date_end.getDate()-(7*filterWeek))
+    date_start = dateFormat(date_start,"yyyy-mm-dd")
+    date_end = dateFormat(date_end,"yyyy-mm-dd")
 
-import imageComment from "../../images/garden1.jpg"
-
-const MyActivites = () => {
-
-//     const [listPostData,setListPostData] = useState([
-//         {textComment:" Simply dummy text of the printing and is simply dummy text of the printing and is simply dummy text of the printing and text of the printing and is simply dummy text of the printing and the printing ",
-//     imageComment:"./assert/garden1.jpg",
-//     location:"สวนจตุจักร",
-//     date:"12/05/2022",
-//     time:"08:00",
-//     unitTime : "AM"
-//     },
-// ])
-
-    const textComment=" Simply dummy text of the printing and is simply dummy text of the printing and is simply dummy text of the printing and text of the printing and is simply dummy text of the printing and the printing "
-    // const imageComment={imageComment}
-    const location = "สวนจตุจักร"
-    const date = "12/05/2022"
-    const time = "08:00"
-    const unitTime = "AM"
+    
 
 
+    const [dataActivities,setDataActivites] = useState([])
+    const [click,setClick] = useState(true)
+    useEffect(()=>{
+            axios.get(`${url}/activities/${username_id}?date_start=${date_start}&date_end=${date_end}`).then((res)=>{
+            setDataActivites(res.data)
+            
+        }
+        )
+        console.log("delete")
+    },[click,filterWeek])
+ 
+    const removeItem = (id) =>{
+        console.log(id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            console.log(result)
+            if (result.isConfirmed) {
+                axios.delete(`${url}/activities/${id}`).then(setClick(!click))
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+   
+    }
+    
+    const updateItem =(id) =>{
+        console.log(id)
+        setClick(!click)
+    }
 
+    const selectWeek = (week)=>{
+        setFilterWeek(week)
+    }
+    
 
   
     return (
@@ -34,14 +72,15 @@ const MyActivites = () => {
         <div className='show-card-activities'>
             <div className="h1__weeks">
                 <h1>My Activities</h1>
-                <DropDown />
+                <DropDown selectWeek ={ selectWeek } weekNo = {filterWeek}/>
             </div>
-            <CardMyActivites textComment={textComment} imageComment={imageComment} location={location}
-                date={date} time={time} unitTime={unitTime} />
-            <CardMyActivites />
-            <CardMyActivites />
-            <CardMyActivites />
-            <CardMyActivites />
+            {dataActivities.map((data,index)=>{
+                return <CardMyActivites key = {index} textComment = {data.captions} location = {data.location} date = {data.date_post.split("T")[0]}  
+                imageComment = {data.sport_photo} removeItem={removeItem} id={data._id} updateItem = {updateItem}/>
+            })}
+
+    
+           
         </div>
     )
 }

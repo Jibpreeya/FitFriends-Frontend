@@ -1,41 +1,108 @@
-import './MainPage.scss'
-import CommunityBox from '../../Components/Main-CommunityBox/CommunityBox'
-import SideBar from '../../Components/Main-SideBar/SideBar'
-import Useronline from '../../Components/Main-UserOnline/UserOnline'
-import { Link } from 'react-router-dom';
-import Notification from '../../Components/Main-Notification/notification'
-import DatePicker from '../../Components/Main-Date/Date'
+import "./MainPage.scss";
+import React, { useState, useEffect, useInsertionEffect } from "react";
+import CommunityBox from "../../components/Main-CommunityBox/CommunityBox";
+import SideBar from "../../components/Main-SideBar/SideBar";
+import Useronline from "../../components/Main-UserOnline/UserOnline";
+import { Link } from "react-router-dom";
+// import DatePicker from '../../components/MainPage/Date/Date';
+import Notification from "../../components/Main-Notification/notification";
+import axios from "axios";
+import dateFormat from "dateformat";
 
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { ConnectedTvOutlined } from "@mui/icons-material";
+import config from "../../../config";
 
 function MainPage() {
+  const url = config.url;
+  const [activitesGroup, setactivitesGroup] = useState([]);
+  const [value, setValue] = React.useState(new Date());
+  const [click, setClick] = useState(false);
+  const [numActivity, setNumActivity] = useState(0);
+  useEffect(() => {
+    console.log("runnn");
+    if (click == false) {
+      axios.get(`${url}/activities`).then((res) => {
+        setactivitesGroup(res.data);
+      });
+    } else {
+      console.log("run dete");
+      const date = dateFormat(value, "yyyy-mm-dd");
+      axios.get(`${url}/activities?date=${date}`).then((res) => {
+        setactivitesGroup(res.data);
+      });
+    }
+  }, [value]);
+  console.log(value);
+  useEffect(() => {
+    if (numActivity === 1) {
+      var sport = "running";
+    } else if (numActivity === 2) {
+      var sport = "jogging";
+    } else if (numActivity === 3) {
+      var sport = "swimming";
+    } else if (numActivity === 4) {
+      var sport = "yoga";
+    } else if (numActivity === 5) {
+      var sport = "aerobic";
+    } else if (numActivity === 6) {
+      var sport = "strengh";
+    } else if (numActivity === 7) {
+      var sport = "others";
+    }
+    axios.get(`${url}/activities/activity/${sport}`).then((res) => {
+      setactivitesGroup(res.data);
+    });
+  }, [numActivity]);
 
+  const groupActivity = (result) => {
+    setNumActivity(result);
+  };
+  console.log(value);
+  const handleChange = async (newValue) => {
+    setValue(newValue);
+    setClick(true);
+  };
+  console.log("myyyyyy", activitesGroup);
   return (
     <div className="MainPage">
-
-      <div className='main-session'>
-        <div className='App-sidebar'>
-          <SideBar />
-          <Notification />
+      <div className="main-session">
+        <div className="App-sidebar">
+          <SideBar groupActivity={groupActivity} />
         </div>
 
-        <div className='feed'>
-          < CommunityBox />
+        <div className="feed">
+          <CommunityBox activitesGroup={activitesGroup} />
         </div>
-        <div className='useronline-date'>
-          <div className='DatePicker'>
-            <DatePicker wrapperClassName="date-picker"/>
+        <div className="useronline-date">
+          <div className="DatePicker">
+            {/* <DatePicker value={value} onChange={handleChange}/> */}
+            <div className="DatePicker">
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <Stack spacing={3}>
+                  <DesktopDatePicker
+                    label="Date desktop"
+                    inputFormat="MM/dd/yyyy"
+                    value={value}
+                    onChange={handleChange}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </Stack>
+              </LocalizationProvider>
+            </div>
           </div>
 
-
-          <div className='useronline'>
+          <div className="useronline">
             <Useronline />
-            
           </div>
         </div>
-
       </div>
     </div>
-  )
+  );
 }
 
-export default MainPage
+export default MainPage;
