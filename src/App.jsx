@@ -1,36 +1,146 @@
 // import React from 'react';
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.scss';
-import Navbar from './Components/Navbar/Navbar';
-import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
-import MainPage from './Pages/MainPage/MainPage';
-import { AddPost } from './Pages/AddPost/AddPost';
-import ProfilePage from './Pages/ProfilePage/ProfilePage'
-import { EditPost } from './Pages/EditPost/EditPost';
-
-
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import "./App.scss";
+import Navbar from "./Components/Navbar/Navbar";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import MainPage from "./Pages/MainPage/MainPage";
+import { AddPost } from "./Pages/AddPost/AddPost";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import { EditPost } from "./Pages/EditPost/EditPost";
+import axios from "axios";
+import config from "../config";
+import Swal from "sweetalert2";
 
 function App() {
-  return (
-    
-    <div className='app'>
+  const url = config.url;
+  const [loginState, setLoginState] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userPhoto, setUserPhoto] = useState("");
+  const [userLogin, setUserLogin] = useState({
+    username: "",
+    password: "",
+  });
 
-      
-      {/* พื้นที่สำหรับรัน test แต่ละ page */}
-        {/* <Navbar /> */}
-        {/* <Login /> */}
-        {/* <Register /> */}
-        {/* <MainPage /> */}
-        {/* <AddPost /> */}
+  const handleChange = (event) => {
+    setUserLogin({ ...userLogin, [event.target.name]: event.target.value });
+  };
 
-        {/*<ProfilePage />*/}
+  const loginValidation = async () => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
 
+    const postData = {
+      username: userLogin.username,
+      password: userLogin.password,
+    };
 
+    await axios
+      .post(`${url}/users/login`, postData, { headers: headers })
+      .then((res) => {
+        console.log(res.data);
+        setLoginState(true);
+        setUserId(res.data.username_id);
+        setUserName(res.data.username);
+        setUserPhoto(res.data.user_photo);
+      })
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .then(() => {
+        return <Navigate to="/" />;
+      })
+      .catch((res) => {
+        Swal.fire({
+          icon: "error",
+          title: "Username or Password wrong",
+          text: "Please try again",
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+      });
+  };
+  // console.log("username issssss", userPhoto);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // preventDefault ไม่ให้ browser reload
+    loginValidation();
+  };
+  if (loginState === false) {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <div className="nav">
+            <Navbar />
+          </div>
+          <Routes>
+            {/* <Route path = '/nav' element={<Navbar/>}/> */}
+
+            <Route
+              path="/login"
+              element={
+                <Login
+                  onSubmit={handleSubmit}
+                  user_login={userLogin.username}
+                  user_password={userLogin.password}
+                  onChange={handleChange}
+                />
+              }
+            />
+            <Route path="/register" element={<Register />} />
+
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <div className="nav">
+            <Navbar />
+          </div>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route
+              path="/myactivities"
+              element={<ProfilePage userId={userId} />}
+            />
+            {/* <Route path = '/login' element = {<Login onSubmit={handleSubmit} user_login = {userLogin.username} user_password = {userLogin.password} onChange={handleChange} />}/> */}
+            {/* <Route path = '/register' element = {<Register/>}/> */}
+            <Route
+              path="/addpost"
+              element={
+                <AddPost
+                  userId={userId}
+                  userName={userName}
+                  userPhoto={userPhoto}
+                />
+              }
+            />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+{/* <div className='app'>
       <BrowserRouter>
         <Navbar />
-        {/* นอก tag Routes คือการใส่ทุกหน้า */}
         <Routes>
 
           <Route path='/' element= {<Login />} />
@@ -43,10 +153,4 @@ function App() {
 
 
       </BrowserRouter>
-  </div>
-
-  )
-    
-}
-
-export default App;
+  </div> */}

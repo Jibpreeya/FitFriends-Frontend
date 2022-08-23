@@ -11,7 +11,7 @@
     gap: 1rem;
 }
 .btn{
-    color: white;
+    color: rgb(252, 252, 252);
     background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
     background-size: 100%;
     cursor: pointer;
@@ -29,38 +29,45 @@
     transform: scale(1.1);
 }
 
-
 .SideBar .Runingicon {
     position: relative;  
-    
 }
 
+
 .SideBar .Joggingicon {
-    position: relative;;
+ 
+    position: relative;
 }
 
 .SideBar .Swimmingicon {
+
     position: relative;
 }
 
 .SideBar .Yogaicon {
+   
     position: relative;
 }
 
 .SideBar .Aerobicicon {
+    
     position: relative;
 }
 
 .SideBar .Strengthtrainingicon {
+    
     position: relative;
-   
 }
+
+.SideBar .Plusicon {
+    position: relative;
+}
+
 .SideBar .Addposticon {
     position: relative;
     padding-top: 1.4rem;
     
 }
-
 .SideBar .Othersicon {
     position: relative;
     padding-top: 1.4rem;
@@ -69,32 +76,34 @@
 // icon img
 
 .Runingicon img {
-    height: 1.7rem;
+    height: 1.4rem;
 }
 
 .Joggingicon img {
-    height: 1.7rem;
+    height: 1.4rem;
 }
 
 .Swimmingicon img {
-    height: 1.7rem;
+    height: 1.4rem;
     margin-right: .3rem;
 }
 
 .Yogaicon img {
-    height: 1.7rem;
-    margin-right: .3rem;
+    height: 1.4rem;
 }
-
 
 .Aerobicicon img {
-    height: 1.7rem;
+    height: 1.4rem;
 }
 
-.Strengthtrainingicon img {
-    height: 1.7rem;
+.SideBar .Strengthtrainingicon img {
+    height: 27px;
     margin-right: 0.5rem;
    
+}
+
+.Addposticon img {
+    margin-right: 0.5rem;
 }
 
 .SideBar .Addposticon  {

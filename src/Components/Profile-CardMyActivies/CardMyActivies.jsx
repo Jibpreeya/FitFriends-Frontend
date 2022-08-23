@@ -1,19 +1,18 @@
 import './CardMyActivites.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import imageComment from "../../images/garden1.jpg"
 import { Link } from 'react-router-dom';
 
 const CardMyActivites = (props) => {
-    console.log(props.imageComment)
+    
     return(
         <div className="card">
             <div className='gird-container'>
                 <div className="header-comment">
-                    <div className = "button-edit">
+                    <div className = "button-edit" onClick={()=>props.updateItem(props.id)}>
                         <i class="fas fa-pen"></i>
-                       <Link to='/EditPost'><span>Edit</span></Link>
+                        <span>Edit</span>
                     </div>
-                    <div className = "button-delete">
+                    <div className = "button-delete" onClick={()=>props.removeItem(props.id)}>
                         <i class="fas fa-trash-alt"></i>
                         <span>Delete</span>
                     </div>
@@ -25,7 +24,7 @@ const CardMyActivites = (props) => {
                     </div>
                     <div className="footer-cooment">
                         <div className="location">
-                            <span><i className="fas fa-map-marker-alt"></i></span>
+                            <span><i class="fas fa-map-marker-alt"></i></span>
                             <p>{props.location}</p>
                         </div>
                         <div className="posted-date">
@@ -40,7 +39,7 @@ const CardMyActivites = (props) => {
                    
                 </div>
                 <div className="image-comment">
-                    <img src={imageComment} />
+                    <img src={props.imageComment} />
                     
                 </div>
             </div>

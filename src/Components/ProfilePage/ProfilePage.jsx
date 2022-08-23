@@ -1,25 +1,36 @@
 import React from "react";
 import "./ProfilePage.css"
-import { useState } from "react";
-import MyActivites from "../../Components/Profile-MyActivites/MyActivities";
+import { useState,useEffect } from "react";
+import MyActivites from "../Profile-MyActivites/MyActivities";
+import axios from "axios";
+import config from "../../../config";
+const ProfilePage= (props) =>{
+    const url=config.url
+    const [profileData,setProfileData] = useState([])
+    const userIdLogin = props.userId
+    useEffect(() => {
 
-import profilePicture from "../../images/avatar.png"
-
-
-const ProfilePage= () =>{
-
-    const [profileData,setProfileData] = useState({name:"Michael Carrick",age:"20",height:"100",weight:"30",bmi:"16"})
+        axios.get(`${url}/users/${userIdLogin}/information`)
+        
+        .then((res) => { setProfileData(res.data)})
+        console.log(profileData)
+    }
+    
+        , [profileData])
     console.log(profileData)
     return(
-        <div className="ProfilePage">
+        <div>
+           <div className="navbar">
+                {/* <Navbar/> */}
+           </div>
             <div className="box-profile-page">
                 <div className="user-profile">
                     <div className="profile-picture">
-                        <img src={profilePicture}
+                        <img src={profileData.user_photo} 
                         alt="profile-picture"/>
                     </div>
                     <div className="profile-detail">
-                        <h2>Name : <span>{profileData.name}</span></h2>
+                        <h2>Name : <span>{profileData.username}</span></h2>
                         <h2>Age : <span>{profileData.age}</span></h2>
                         <h2>Height : <span>{profileData.height} cm</span></h2>
                         <h2>Weight : <span>{profileData.weight} kg</span></h2>
@@ -28,7 +39,8 @@ const ProfilePage= () =>{
                     
                 </div>
                 <div className="my-activity">
-                    <MyActivites />
+                 
+                    <MyActivites userId={userIdLogin}/>
                 </div>
 
             </div>

@@ -5,43 +5,44 @@ import userImage from '../../images/username.png'
 import passwordImage from '../../images/password.png'
 
 
-function Login() {
-  const [userLogin, setUserLogin] = useState({
-    username: '',
-    password: ''
-  });
+function Login(props) {
+  // const [userLogin, setUserLogin] = useState({
+  //   username: '',
+  //   password: ''
+  // });
 
-  const users = [
-    {
-      username: 'admin',
-      password: '123456'
-    },
-  ];
+  // const users = [
+  //   {
+  //     username: 'admin',
+  //     password: '123456'
+  //   },
+  // ];
 
-  const handleChange = (event) => {
-    setUserLogin({...userLogin, [event.target.name]: event.target.value})
-  };
+  // const handleChange = (event) => {
+  //   setUserLogin({...userLogin, [event.target.name]: event.target.value})
+  // };
 
-  const loginValidation = () => {
-    const loginCheck = users.find(user => (user.username === userLogin.username && user.password === userLogin.password));
-    if(loginCheck) {
-      alert('Login Successfully')
-    } else {
-      alert('invalid password or username')
-      console.log('invalid password or username');
-    }
-  };
+  // const loginValidation = () => {
+  //   const loginCheck = users.find(user => (user.username === userLogin.username && user.password === userLogin.password));
+  //   if(loginCheck) {
+  //     alert('Login Successfully')
+  //   } else {
+  //     alert('invalid password or username')
+  //     console.log('invalid password or username');
+  //   }
+  // };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(userLogin)
-    // preventDefault ไม่ให้ browser reload
-    loginValidation();
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(userLogin)
+  //   // preventDefault ไม่ให้ browser reload
+  //   loginValidation();
+  // };
+
 
   return (
     <div className='login'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={props.onSubmit}>
       <h1>LOG IN</h1>
        <div className='contentLogin'>
          <div className='listContentLogin'>
@@ -49,8 +50,8 @@ function Login() {
            <input 
              type='text'
              name='username' 
-             value={userLogin.username}
-             onChange={handleChange}
+             value={props.user_login}
+             onChange={props.onChange}
              placeholder='USERNAME' 
              required/> 
          </div>
@@ -59,8 +60,8 @@ function Login() {
            <input 
             type='password' 
             name='password'
-            value={userLogin.password}
-            onChange={handleChange}
+            value={props.user_password}
+            onChange={props.onChange}
             placeholder='PASSWORD'
             required/>
             {/* placeholder คือ ตำที่จะแสดงภายในกล่องข้อความ */}
