@@ -16,7 +16,7 @@ export const AddPost = () => {
         {id:'j', value: 'other', text: 'Other'},
       ];
 
-    
+  
       const [form, setForm] = useState({
         selected: '',
         date: '',
@@ -29,11 +29,10 @@ export const AddPost = () => {
       
     const [images, setImages] = useState({});
 
-    // const [imageURLs, setImagesURLs] = useState([]);
+    
 
     
-    // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
-    // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
+    
     const convertToBase64 = (file) => {
         return new Promise((resolve, reject) => {
           const fileReader = new FileReader();
@@ -85,11 +84,7 @@ export const AddPost = () => {
         })
    
     }
-        // // ส่งข้อมูลขึ้นใหม่
-        // function onImageChange(e) {
-        //     setImages([...e.target.files]);
-        // }
-
+       
         const onSubmits = async (e) => {
           e.preventDefault();
           console.log(form);

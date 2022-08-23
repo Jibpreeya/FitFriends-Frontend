@@ -39,12 +39,9 @@ export const EditPost = () => {
   });
 
   const [images, setImages] = useState({});
-  // const [showImage, setShowImage] = useState(true);
+  
 
-  // const [imageURLs, setImagesURLs] = useState([]);
-
-  // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
-  // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
+  
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
