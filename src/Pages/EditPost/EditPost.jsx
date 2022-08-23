@@ -20,15 +20,13 @@ export const EditPost = () => {
 
   const options = [
     { id: "a", value: "", text: "Name of Sport", disabled: true },
-    { id: "b", value: "running", text: "Running" },
-    { id: "c", value: "jogging", text: "Jogging" },
-    { id: "d", value: "yoga", text: "Yoga" },
-    { id: "e", value: "aerobic", text: "Aerobic" },
-    { id: "f", value: "strength Training", text: "Strength Training" },
-    { id: "g", value: "swimming", text: "swimming" },
-    { id: "h", value: "dance", text: "Dance" },
-    { id: "i", value: "boxing", text: "Boxing" },
-    { id: "j", value: "other", text: "Other" },
+    {id:'b', value: 'running', text: 'Running'},
+    {id:'c', value: 'jogging', text: 'Jogging'},
+    {id:'d', value: 'yoga', text: 'Yoga'},
+    {id:'e', value: 'aerobic', text: 'Aerobic'},
+    {id:'f', value: 'strength Training', text: 'Strength Training'},
+    {id:'g', value: 'swimming', text: 'swimming'},
+    {id:'j', value: 'other', text: 'Other'},
   ];
 
   const [form, setForm] = useState({
@@ -41,12 +39,9 @@ export const EditPost = () => {
   });
 
   const [images, setImages] = useState({});
-  // const [showImage, setShowImage] = useState(true);
+  
 
-  // const [imageURLs, setImagesURLs] = useState([]);
-
-  // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
-  // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
+  
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -88,7 +83,7 @@ export const EditPost = () => {
       time_start: timeStart,
       time_end: timeEnd,
       location: activityData.location,
-      captions: activityData.caption,
+      captions: activityData.captions,
       sport_photo: images.sport_photo,
     };
     console.log(addActivity);
