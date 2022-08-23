@@ -218,7 +218,7 @@ function Register() {
             name="user_photo" 
             multiple accept="user_photo/*" 
             onChange={(e) => handleFileUpload(e)}
-             />
+            required/>
             {/* <p className="choosePhoto">Choose a photo</p> */}
             {/* {userPhotoURLs.map((imageSrc, index) => (<img width="300" height="300" src={imageSrc} key={index} />))} */}
           </div>

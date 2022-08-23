@@ -2,7 +2,7 @@ import React from "react";
 import "./ProfilePage.css"
 import { useState } from "react";
 import MyActivites from "../../Components/Profile-MyActivites/MyActivities";
-
+import { Link } from 'react-router-dom';
 import profilePicture from "../../images/avatar.png"
 
 

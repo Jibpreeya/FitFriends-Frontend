@@ -1,6 +1,7 @@
 import './CardMyActivites.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import imageComment from "../../images/garden1.jpg"
+import { Link } from 'react-router-dom';
 
 const CardMyActivites = (props) => {
     console.log(props.imageComment)
@@ -10,7 +11,7 @@ const CardMyActivites = (props) => {
                 <div className="header-comment">
                     <div className = "button-edit">
                         <i className="fas fa-pen"></i>
-                        <span>Edit</span>
+                        <span><Link to='/EditPost'>Edit</Link></span>
                     </div>
                     <div className = "button-delete">
                         <i className="fas fa-trash-alt"></i>
