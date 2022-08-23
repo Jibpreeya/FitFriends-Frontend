@@ -123,18 +123,31 @@ $font-family_1: Arial, Helvetica, sans-serif;
         padding-left: 7px;
         border: double 2px transparent;;  
         border-radius: 20px;
-        background-color: #F25F29AB;
+        // background-color: #F25F29AB;
         font-size: 12px;
         transition: .3s;
-
+    
     }
 
-    .chooseFile:hover {
-        background-color: #AE0AFA;
+    .PostForm .chooseFile:hover {
+         background-color: white; 
+         width: 50px;
+         height: 50px;
+
     }
 
     
+    .chooseFile img:hover {
+        background-color: #ffffff;
+        border: 15px solid #24243E;
+        width: 100px;
+        height: 100px;
+        margin-top: -10px;
+        margin-left: -10px;
+       
+    }
 
+    
 
 
      ///////styling button//////////////////////////////
@@ -156,6 +169,7 @@ $font-family_1: Arial, Helvetica, sans-serif;
         display: flex;
         justify-content: center;
         cursor: pointer;
+        margin-top: 5rem;
 
         .saveButton {
             background-color: #AE0AFA;
