@@ -72,8 +72,7 @@ function Login(props) {
         <button type='submit'>SIGN IN</button>
 
         <div className='underButton'>
-          <h3><Link to='/MainPage'><span>May be Later</span></Link></h3>
-          <h3><Link to='/Register'><span>Register</span></Link></h3>
+          <h3><Link to='/Register'><span>Don't have an account ? Register</span></Link></h3>
         </div>
        </form>
     </div>

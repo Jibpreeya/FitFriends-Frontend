@@ -85,7 +85,6 @@ function MainPage() {
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
                   <DesktopDatePicker
-                    label="Date desktop"
                     inputFormat="MM/dd/yyyy"
                     value={value}
                     onChange={handleChange}

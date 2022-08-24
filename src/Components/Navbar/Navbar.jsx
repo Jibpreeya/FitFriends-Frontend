@@ -36,9 +36,9 @@ function Navbar() {
          
             <div className="login-name">
                     <button id='#' className="sign-in"><i className="fa-solid fa-right-to-bracket"></i>
-                    <Link style={{textDecoration: 'none',color:"black"}} to = {"/login"}>Sign in</Link></button>
+                    <Link style={{textDecoration: 'none',color:"white"}} to = {"/login"}>Sign in</Link></button>
                     <button id='#' className="sign-up"><i className="fa-solid fa-user-plus"></i>
-                    <Link style={{textDecoration: 'none',color:"black"}} to = {"/register"}>Sign up</Link></button>
+                    <Link style={{textDecoration: 'none',color:"white"}} to = {"/register"}>Sign up</Link></button>
             </div>
             <div className="nav-mobile">
                 <div className="toggle-bar">
@@ -48,9 +48,9 @@ function Navbar() {
                     <div className="container-mobile">
                         <div className="mobile-login-name">
                             <button onClick={toggleMobile}><i className="fa-solid fa-right-to-bracket sign-in" id='#'></i>
-                                <Link style={{textDecoration: 'none',color:"black"}} to = {"/login"}>Sign in</Link></button>
+                                <Link style={{textDecoration: 'none',color:"white"}} to = {"/login"}>Sign in</Link></button>
                             <button onClick={toggleMobile}><i className="fa-solid fa-user-plus sign-up" id='#'></i>
-                            <Link style={{textDecoration: 'none',color:"black"}} to = {"/register"}>Sign up</Link></button>
+                            <Link style={{textDecoration: 'none',color:"white"}} to = {"/register"}>Sign up</Link></button>
                         </div>
                         <div className = "mobile-ul">
                             <ul className="mobile-nav-ul">

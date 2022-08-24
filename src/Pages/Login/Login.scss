@@ -4,13 +4,12 @@
     // top: 60%;  
     // left: 50%;  
     // transform: translate(-50%, -50%);
-    margin: 10px auto;
+    margin: 80px auto;
     width: 30%;
     padding: 1rem;
     background: linear-gradient(180deg, rgba(242, 95, 41, 0.96) 4.69%, rgba(174, 10, 250, 0.96) 38.02%);
     padding: 3px;
     border-radius: 1.5em;
-
 
     form {
         height: 300px;
@@ -82,8 +81,9 @@
 
     .underButton {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
+        margin-top: 15px;
         h3 {
             margin: 10px;
             span {

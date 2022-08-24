@@ -130,12 +130,17 @@
     display: flex;
     font-size: 1.1em;
     font-weight: 600;
-    background-color: #2D2D4B; 
+    background-color: #A19AF3; 
+    margin-left: 10px;
     
 }
 .footer-cooment .location p {
-    margin-left: 70px;
+    margin-left: 10px;
     background-color: #2D2D4B; 
+    color: #A19AF3;
+    width: 100px;
+}
+.fa-location-dot:before, .fa-map-marker-alt:before {
     color: #A19AF3;
 }
 .posted-date {
