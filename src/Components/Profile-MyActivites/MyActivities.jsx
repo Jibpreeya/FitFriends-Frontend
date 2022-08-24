@@ -47,7 +47,7 @@ const MyActivites = (props) => {
     }).then((result) => {
       console.log(result);
       if (result.isConfirmed) {
-        axios.delete(`${url}/activities/${id}`).then(setClick(!click));
+        axios.delete(`${url}/activities/${id}`).then(()=>setClick(!click));
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
