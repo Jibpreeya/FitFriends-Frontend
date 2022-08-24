@@ -1,6 +1,6 @@
 // import React from 'react';
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./Components/Navbar/Navbar";
 import Login from "./Pages/Login/Login";
@@ -138,7 +138,8 @@ function App() {
 
 export default App;
 
-{/* <div className='app'>
+{
+  /* <div className='app'>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -153,4 +154,5 @@ export default App;
 
 
       </BrowserRouter>
-  </div> */}
+  </div> */
+}

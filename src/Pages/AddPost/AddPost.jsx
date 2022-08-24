@@ -3,9 +3,13 @@ import dateFormat, { masks } from "dateformat";
 import "./AddPost.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import config from "../../../config";
 
-export const AddPost = () => {
+export const AddPost = (props) => {
+  const url = config.url;
+  let navigate = useNavigate();
   const options = [
     { id: "a", value: "", text: "Name of Sport", disabled: true },
     { id: "b", value: "running", text: "Running" },
@@ -28,6 +32,10 @@ export const AddPost = () => {
 
   const [images, setImages] = useState({});
 
+  // const [imageURLs, setImagesURLs] = useState([]);
+
+  // ถ้าไม่ใส่รูปภาพจะfailed แต่ถ้าใส่รูปภาพมาจะทำ forEach loop เป็นnewImageUrls
+  // แล้ว push ข้อมูลตัวใหม่ใน arr ส่งข้อมูลขึ้นใหม่เป็น imageURLs
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -51,7 +59,6 @@ export const AddPost = () => {
   };
 
   const connectToBackend = async () => {
-    const url = config.url;
     const date = dateFormat(form.date, "isoDateTime");
     const timeStart = dateFormat(form.timeStart, "isoDateTime");
     const timeEnd = dateFormat(form.timeEnd, "isoDateTime");
@@ -62,9 +69,9 @@ export const AddPost = () => {
       "Content-Type": "application/json",
     };
 
-    const addActivity = {
-      username: "jibji",
-      username_id: "999",
+    const postData = {
+      username: props.userName,
+      username_id: props.userId,
       sport: form.selected,
       date_post: date,
       date_activites_start: timeStart,
@@ -72,21 +79,39 @@ export const AddPost = () => {
       location: form.location,
       captions: form.caption,
       sport_photo: images.sport_photo,
-      user_photo: "123ปลาฉลามขึ้นบก",
+      user_photo: props.userPhoto,
     };
-    console.log(addActivity);
+
     await axios
-      .post(`${url}/activities`, addActivity, { headers: headers })
-      .then((res) => {
-        console.log(res);
+      .post(`${url}/activities`, postData, { headers: headers })
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Add post success",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Something wrong",
+          text: "Please try again",
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
       });
-    console.log("test123");
   };
+  // // ส่งข้อมูลขึ้นใหม่
+  // function onImageChange(e) {
+  //     setImages([...e.target.files]);
+  // }
 
   const onSubmits = async (e) => {
     e.preventDefault();
-    console.log(form);
-    // console.log(images);
+
     await connectToBackend();
   };
 
@@ -194,6 +219,7 @@ export const AddPost = () => {
             multiple
             accept="sport_photo/*"
             onChange={(e) => handleFileUpload(e)}
+            // id="upload" hidden
           />
           {/* <label htmlFor="upload" className="chooseFile">Choose file +</label> */}
           {/* {images.map((imageSrc, index) => (<img width="400" height="360" src={imageSrc} key={index} />))} */}
@@ -205,7 +231,12 @@ export const AddPost = () => {
             SAVE
           </button>
           <button className="cancelButton" type="submit">
-            <Link to="/MainPage">CANCEL</Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/MainPage"
+            >
+              CANCEL
+            </Link>
           </button>
           {/* <Link to='/MainPage'><button className="cancelButton" type="submit" >CANCEL</button></Link> */}
         </div>
