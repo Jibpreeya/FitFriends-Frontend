@@ -23,6 +23,7 @@ function App() {
     username: "",
     password: "",
   });
+  const [editPostId, setEditPostId] = useState("");
 
   const handleChange = (event) => {
     setUserLogin({ ...userLogin, [event.target.name]: event.target.value });
@@ -41,7 +42,6 @@ function App() {
     await axios
       .post(`${url}/users/login`, postData, { headers: headers })
       .then((res) => {
-        console.log(res.data);
         setLoginState(true);
         setUserId(res.data.username_id);
         setUserName(res.data.username);
@@ -68,19 +68,30 @@ function App() {
         });
       });
   };
-  // console.log("username issssss", userPhoto);
+  const setLogout = () => {
+    setLoginState(false);
+    setUserId("");
+    setUserName("");
+    setUserPhoto("");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // preventDefault ไม่ให้ browser reload
     loginValidation();
   };
+
+  const updateItem = (id) => {
+    setEditPostId(id);
+  };
+
   if (loginState === false) {
     return (
       <div className="App">
         <BrowserRouter>
           <div className="nav">
-            <Navbar />
+            <Navbar loginState={loginState} handleClick={setLogout} />
           </div>
           <Routes>
             {/* <Route path = '/nav' element={<Navbar/>}/> */}
@@ -108,13 +119,13 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <div className="nav">
-            <Navbar />
+            <Navbar loginState={loginState} handleClick={setLogout} />
           </div>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route
               path="/myactivities"
-              element={<ProfilePage userId={userId} />}
+              element={<ProfilePage userId={userId} updateItem={updateItem} />}
             />
             {/* <Route path = '/login' element = {<Login onSubmit={handleSubmit} user_login = {userLogin.username} user_password = {userLogin.password} onChange={handleChange} />}/> */}
             {/* <Route path = '/register' element = {<Register/>}/> */}
@@ -129,6 +140,11 @@ function App() {
               }
             />
             <Route path="*" element={<Navigate to="/" />} />
+
+            <Route
+              path="/editpost"
+              element={<EditPost editPostId={editPostId} />}
+            />
           </Routes>
         </BrowserRouter>
       </div>
@@ -137,22 +153,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <div className='app'>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-
-          <Route path='/' element= {<Login />} />
-          <Route path='/Register' element= {<Register />} />
-          <Route path='/MainPage' element= {<MainPage />} />
-          <Route path='/AddPost' element= {<AddPost />} />
-          <Route path='/ProfilePage' element= {<ProfilePage />} />
-          <Route path='/EditPost' element= {<EditPost />} />
-        </Routes>
-
-
-      </BrowserRouter>
-  </div> */
-}

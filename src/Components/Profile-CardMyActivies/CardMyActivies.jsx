@@ -1,6 +1,6 @@
 import './CardMyActivites.css'
-import imageComment from "../../images/garden1.jpg"
-import { Link } from 'react-router-dom';
+
+
 
 const CardMyActivites = (props) => {
     
