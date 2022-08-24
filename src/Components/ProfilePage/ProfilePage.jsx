@@ -15,7 +15,7 @@ const ProfilePage = (props) => {
       .then((res) => {
         setProfileData(res.data);
       });
-  }, [profileData]);
+  }, []);
   const updateItem = (id) => {
     props.updateItem(id);
   };
