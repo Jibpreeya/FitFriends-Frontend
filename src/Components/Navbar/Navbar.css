@@ -1,9 +1,3 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
 .Nav-content{
     display: flex;
     background-color: #24243E;
@@ -12,7 +6,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    border: 1px solid black;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,1);
     
 }
 .logo {
@@ -26,18 +20,6 @@
     margin-left: 3rem;
 }
 
-/* .Nav-content1 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    height: 7rem;
-
-    height: 8rem;
-    height: 8rem;
-    max-height: 100%;
-    background-color: #46469C;
-} */
 .Nav-ul{
     display: flex;
     justify-content: center;
@@ -66,25 +48,6 @@
     /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg); */
 }
 
-
-
-
-    
-
-
-/* .Nav-mobile {
-    display: none;
-} */
-
-/* .Nav-content1 ul {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: space-around;
-    gap: 7rem;
-} */
-
-
 .login-name :hover {
     cursor: pointer;
     color: white;
@@ -101,14 +64,6 @@
     color: white;
     text-decoration: none;
 }
-
-/* .Nav-content1 li {
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    margin: auto auto;
-
-} */
 
 .login-name {
     /* margin: 1.5em; */
@@ -156,7 +111,7 @@
 .tab-mobile.active {
     width:50%;
     height: 500px;
-    background-color: #46469C;
+    background-color: #24243E;
     position: absolute;
     right: 0;
     top:80px;
@@ -169,6 +124,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #24243E;
     
 }
 .mobile-login-name {
@@ -196,9 +152,11 @@
     cursor: pointer;
     color: white;
     background-color: #fab869;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+    conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg);
 }
 .mobile-nav-ul li {
-    background-color: #46469C;
+    background-color: #24243E;
     padding: 10px 10px 10px 10px;
     border-radius: 1.5rem;
     margin-top: 20px;
@@ -208,10 +166,11 @@
     letter-spacing: 1px;
     font-weight: 600;
     cursor: pointer;
+    text-align: center;
  
 }
 .mobile-nav-ul li:hover {
-    background-color: #fab869;
+    background-color: rgb(65, 65, 113);
     color: rgb(0, 0, 0);
 }
 

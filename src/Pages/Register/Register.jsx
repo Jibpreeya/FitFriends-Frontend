@@ -263,7 +263,7 @@ function Register() {
         <div className="underRegister">
           <h3>
             <Link to="/">
-              <span>Back to login</span>
+              <span>Back to Sign in</span>
             </Link>
           </h3>
         </div>
