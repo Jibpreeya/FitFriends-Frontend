@@ -87,8 +87,12 @@
     height: 3rem;
     padding: 10px 10px 10px 10px;
     background-color: #AE0AFA;
-    margin-right: 5px;
+    /* margin-right: 20px; */
     border: #AE0AFA;
+}
+
+.login-name a {
+    margin-right: 3px;
 }
 
 .toggle-bar i{
@@ -139,9 +143,9 @@
     text-align: center;
     width: 8em;
     height: 3rem;
-    padding: 10px 10px 10px 10px;
+    /* padding: 10px 10px 10px 10px; */
     background-color: #F2A950;
-    margin-bottom: 10px;
+    /* margin-top: 10px; */
     font-size: 1rem;
     font-weight: 600;
 }
@@ -154,6 +158,7 @@
     background-color: #fab869;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
     conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg);
+    border-radius: 10px;
 }
 .mobile-nav-ul li {
     background-color: #24243E;
@@ -178,6 +183,10 @@
 
     display: none;
     
+}
+
+.nav-mobile {
+    z-index: 999;
 }
 
 
