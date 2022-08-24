@@ -5,32 +5,32 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import config from "../../../config";
 
-export const EditPost = (props) => {
-  const url = config.url;
-  const [activityData, setActivityData] = useState([]);
-  const activityId = "63059357016b0ea92627b583";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
+export const EditPost = (props) => {
+  let navigate = useNavigate();
+  const url = config.url;
+
+  const [activityData, setActivityData] = useState([]);
+  const activityId = props.editPostId;
+  const urll = config.url;
   useEffect(() => {
-    console.log("hello");
-    const urll = `${url}/activities/get/${activityId}`;
-    console.log(urll);
-    axios.get(`${urll}`).then((res) => {
+    axios.get(`${urll}/activities/get/${activityId}`).then((res) => {
       console.log(res.data);
       setActivityData(res.data);
     });
-    console.log(activityData);
-
   }, []);
-
+  console.log(activityData);
   const options = [
     { id: "a", value: "", text: "Name of Sport", disabled: true },
-    {id:'b', value: 'running', text: 'Running'},
-    {id:'c', value: 'jogging', text: 'Jogging'},
-    {id:'d', value: 'yoga', text: 'Yoga'},
-    {id:'e', value: 'aerobic', text: 'Aerobic'},
-    {id:'f', value: 'strength Training', text: 'Strength Training'},
-    {id:'g', value: 'swimming', text: 'swimming'},
-    {id:'j', value: 'other', text: 'Other'},
+    { id: "b", value: "running", text: "Running" },
+    { id: "c", value: "jogging", text: "Jogging" },
+    { id: "d", value: "yoga", text: "Yoga" },
+    { id: "e", value: "aerobic", text: "Aerobic" },
+    { id: "f", value: "strength Training", text: "Strength Training" },
+    { id: "g", value: "swimming", text: "swimming" },
+    { id: "j", value: "other", text: "Other" },
   ];
 
   const [form, setForm] = useState({
@@ -45,9 +45,7 @@ export const EditPost = (props) => {
   const [images, setImages] = useState({
     sport_photo: "",
   });
-  
 
-  
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -95,9 +93,25 @@ export const EditPost = (props) => {
     };
     console.log(addActivity);
     await axios
-      .put(`${url}/activities/edit/${activityId}`, addActivity, { headers: headers })
+      .put(`${url}/activities/edit/${activityId}`, addActivity, {
+        headers: headers,
+      })
       .then((res) => {
-        console.log(res);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Edit success",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(navigate("/myactivities"));
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Something wrong",
+          text: "Please try again",
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
       });
   };
 
@@ -127,7 +141,7 @@ export const EditPost = (props) => {
                 value={option.value}
               >
                 {option.text}
-              {/* {activityData.sport == option.text} */}
+                {/* {activityData.sport == option.text} */}
               </option>
             ))}
           </select>
@@ -209,21 +223,29 @@ export const EditPost = (props) => {
             type="file"
             className="inputPhoto"
             name="sport_photo"
-            multiple accept="sport_photo/*"
+            multiple
+            accept="sport_photo/*"
             onChange={(e) => handleFileUpload(e)}
             id="upload"
             hidden
           />
-           
-            <label
-              htmlFor="upload"
-              className="chooseFile"
-              value={activityData.sport_photo}
-            > 
-              <img width="100" height="100" src={images.sport_photo == "" ? activityData.sport_photo : images.sport_photo  } />
-              {/* <img width="100" height="100" src={images.sport_photo} /> */}
-            </label>
-          
+
+          <label
+            htmlFor="upload"
+            className="chooseFile"
+            value={activityData.sport_photo}
+          >
+            <img
+              width="100"
+              height="100"
+              src={
+                images.sport_photo == ""
+                  ? activityData.sport_photo
+                  : images.sport_photo
+              }
+            />
+            {/* <img width="100" height="100" src={images.sport_photo} /> */}
+          </label>
         </div>
 
         <div className="buttonPost">
