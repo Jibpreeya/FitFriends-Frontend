@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import config from "../../../config";
 
-export const EditPost = () => {
+export const EditPost = (props) => {
   const url = config.url;
   const [activityData, setActivityData] = useState([]);
-  const activityId = "63034cb344b74d1fde325dc5";
+  const activityId = "63059357016b0ea92627b583";
+
   useEffect(() => {
     console.log("hello");
-    const url = `${url}${activityId}`;
-    console.log(url);
-    axios.get(`${url}`).then((res) => {
+    const urll = `${url}/activities/get/${activityId}`;
+    console.log(urll);
+    axios.get(`${urll}`).then((res) => {
       console.log(res.data);
       setActivityData(res.data);
     });
@@ -33,7 +34,7 @@ export const EditPost = () => {
   ];
 
   const [form, setForm] = useState({
-    selected: "",
+    sport: "",
     date: "",
     timeStart: "",
     timeEnd: "",
@@ -73,27 +74,28 @@ export const EditPost = () => {
     const date = dateFormat(activityData.date, "isoDateTime");
     const timeStart = dateFormat(activityData.timeStart, "isoDateTime");
     const timeEnd = dateFormat(activityData.timeEnd, "isoDateTime");
-    if (activityData.selected === "other") {
-      activityData.selected = activityData.addSport;
+    if (activityData.sport === "other") {
+      activityData.sport = activityData.addSport;
     }
     const headers = {
       "Content-Type": "application/json",
     };
 
     const addActivity = {
-      username: "jib",
-      username_id: "999",
-      sport: activityData.selected,
-      date: date,
-      time_start: timeStart,
-      time_end: timeEnd,
+      username: activityData.username,
+      username_id: activityData.username_id,
+      sport: activityData.sport,
+      date_post: date,
+      date_activites_start: timeStart,
+      date_activites_end: timeEnd,
       location: activityData.location,
       captions: activityData.captions,
       sport_photo: images.sport_photo,
+      user_photo: activityData.user_photo,
     };
     console.log(addActivity);
     await axios
-      .put(`${url}/edit/${activityId}`, addActivity, { headers: headers })
+      .put(`${url}/activities/edit/${activityId}`, addActivity, { headers: headers })
       .then((res) => {
         console.log(res);
       });
@@ -114,8 +116,8 @@ export const EditPost = () => {
           <label>Sport</label>
           <select
             required
-            value={activityData.selected}
-            name="selected"
+            value={activityData.sport}
+            name="sport"
             onChange={onChange}
           >
             {options.map((option) => (
@@ -129,7 +131,7 @@ export const EditPost = () => {
               </option>
             ))}
           </select>
-          {activityData.selected === "other" && (
+          {activityData.sport === "other" && (
             <input
               name="addSport"
               className="addSport"
@@ -196,7 +198,7 @@ export const EditPost = () => {
             className="inputTime"
             type="datetime-local"
             name="timeEnd"
-            value={activityData.timeEnd}
+            value={activityData.timeฎืก}
             onChange={onChange}
           />
         </div>
