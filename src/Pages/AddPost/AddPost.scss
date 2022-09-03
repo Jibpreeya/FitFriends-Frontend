@@ -2,32 +2,33 @@ $color_1: white;
 $color_2: #939393;
 $background-color_1: #24243E;
 $background-color_2: #26263F;
-$font-family_1: Arial, Helvetica, sans-serif;
+
 
 .PostForm {
     // position: fixed;
     // top: 60%;
     // left: 50%;
     // transform: translate(-50%, -50%);
-    margin: 10px auto;
-    font-family: $font-family_1;
+    // margin: 10px auto;
     width: 50%;
     padding-bottom: 1rem;
-    box-shadow: 0px 7px 7px 5px #00000040;
-    border-radius: 10px;
-    
+    // box-shadow: 0px 0px 0px 0px #00000040;
+    border-radius: 1.5em;
+    background-color: #ffffff15;
      
     h1 {
+
         text-align: center;
         color: $color_1;
         font-size: 25px;
-        padding-bottom: 0.5rem;
+        padding: 0.5em ;
     }
 
     .content {
         padding-bottom: 10px;
         margin-left: 12rem;
         font-size:16px;
+        
         
         label {
             padding-bottom: 0.2rem;
@@ -47,10 +48,10 @@ $font-family_1: Arial, Helvetica, sans-serif;
             box-sizing: border-box;
             border: double 2px transparent;;  
             border-radius: 20px;
-            background-image: linear-gradient(#24243E, #24243E), 
-                    linear-gradient(to right, #F25F29,#DB4271,#CE3298, #AE0AFA);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
+            // background-image: linear-gradient( #ffffff15,  #ffffff15), 
+            //         linear-gradient(to right, #F25F29,#DB4271,#CE3298, #AE0AFA);
+            // background-origin: border-box;
+            // background-clip: padding-box, border-box;
             
         }
 

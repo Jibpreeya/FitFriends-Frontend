@@ -1,8 +1,10 @@
 import './Login.scss';
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import userImage from '../../images/username.png'
-import passwordImage from '../../images/password.png'
+// import userImage from '../../images/username.png'
+// import passwordImage from '../../images/password.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 
 function Login(props) {
@@ -43,33 +45,35 @@ function Login(props) {
   return (
     <div className='login'>
       <form onSubmit={props.onSubmit}>
-      <h1>LOG IN</h1>
+      <h1>Login</h1>
        <div className='contentLogin'>
          <div className='listContentLogin'>
-           <img src={userImage}/>
+           {/* <img src={userImage}/> */}
+           <i class="fa-solid fa-user"></i>
            <input 
              type='text'
              name='username' 
              value={props.user_login}
              onChange={props.onChange}
-             placeholder='USERNAME' 
+             placeholder='Username' 
              required/> 
          </div>
          <div className='listContentLogin'>
-           <img src={passwordImage}/>
+           {/* <img src={passwordImage}/> */}
+           <i class="fa-solid fa-unlock"></i>
            <input 
             type='password' 
             name='password'
             value={props.user_password}
             onChange={props.onChange}
-            placeholder='PASSWORD'
+            placeholder='Password'
             required/>
             {/* placeholder คือ ตำที่จะแสดงภายในกล่องข้อความ */}
             {/* required คือต้องใส่ ไม่ใส่ไม่ได้และจะต้องถูกต้องตามรูปแบบของอีเมลที่กำหนด */}
          </div>
          </div>
 
-        <button type='submit'>SIGN IN</button>
+        <button type='submit'>Sign in</button>
 
         <div className='underButton'>
           <h3><Link to='/Register'><span>Don't have an account ? Register</span></Link></h3>

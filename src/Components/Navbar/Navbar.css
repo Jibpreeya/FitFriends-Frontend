@@ -6,7 +6,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,1);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     
 }
 .logo {
@@ -45,13 +45,14 @@
 
 .Nav-ul li:hover{
     font-size: 1.4rem;
+    background-color: rgba(255, 255, 255, 0.1);
     /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg); */
 }
 
 .login-name :hover {
     cursor: pointer;
     color: white;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg);
+    background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
 }
 
 .Nav-content1 img {
@@ -86,9 +87,9 @@
     width: 6rem;
     height: 3rem;
     padding: 10px 10px 10px 10px;
-    background-color: #AE0AFA;
     /* margin-right: 20px; */
-    border: #AE0AFA;
+    background-color: #AE0AFA;
+    
 }
 
 .login-name a {
@@ -156,8 +157,7 @@
     cursor: pointer;
     color: white;
     background-color: #fab869;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-    conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg);
+    background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
     border-radius: 10px;
 }
 .mobile-nav-ul li {

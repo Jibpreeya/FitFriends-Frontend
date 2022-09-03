@@ -45,5 +45,5 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
-    background-color: #F25F29;
+    background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
   }

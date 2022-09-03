@@ -23,9 +23,16 @@
 .postLeftInfo {
     gap: 0px;
 
-    
+   
     h3, p{
+        font-size: medium;
         background-color: #2D2D4B; 
+        font-weight: small;
+    }
+    
+    p{
+        padding-top: .1rem;
+        font-size: 0.8em;
     }
     
     
@@ -40,7 +47,6 @@
     background-color: #2D2D4B; 
     margin-top: 0;
     justify-content: center;
-    font-size: larger;
     p {
         margin-left: 4%;
         margin-right: 4%;

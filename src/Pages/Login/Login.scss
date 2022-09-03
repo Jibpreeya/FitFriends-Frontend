@@ -7,14 +7,14 @@
     margin: 80px auto;
     width: 30%;
     padding: 1rem;
-    background: linear-gradient(180deg, rgba(242, 95, 41, 0.96) 4.69%, rgba(174, 10, 250, 0.96) 38.02%);
+    // background: linear-gradient(180deg, rgba(242, 95, 41, 0.96) 4.69%, rgba(174, 10, 250, 0.96) 38.02%);
     padding: 3px;
     border-radius: 1.5em;
 
     form {
         height: 300px;
         width: 100%;
-        background-color: rgba(65, 65, 113, 1);
+        background-color: #ffffff15;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,7 +22,7 @@
         
 
         h1 {
-            color: rgb(252, 252, 252);
+            color: rgb(255, 200, 0);
             text-align: center;
             margin: 20px;
             font-size: 1.5rem;
@@ -38,44 +38,48 @@
                 justify-content: center;
             }
 
-            img {
+            i {
+                color: #24243e;
+                font-size: 2rem;
                 height: 40px;
                 margin: 5px;
                 border: 0.1px solid rgba(3, 3, 3, 0); // กำหนดเพื่อจัดให้เท่ากัน
+                padding-right: 5px;
             }
 
             input::placeholder { //placeholder คือแสดงข้อความในกล่อง text
-                font-weight: bold;
                 opacity: 0.8;
-                color: rgb(5, 5, 5);
-                text-align: center;
+                color:  #24243e;
             }
 
             input {
                 height: 40px;
                 width: 90%;
-                margin: 5px;
-                padding: 0;
-                border: 0.1px solid rgba(3, 3, 3, 0); // กำหนดเพื่อจัดให้เท่ากัน
+                padding-left: 1rem;
+                border: none;
+                color:rgb(0, 208, 255);
+                background-color: #ffffff15;
+                border-radius: 0.5em;
+                // border: 0.1px solid rgba(3, 3, 3, 0); // กำหนดเพื่อจัดให้เท่ากัน
             }
         }
     }
 
     button {
         height: 50px;
-        width: 30%;
+        width: 35%;
         margin-top: 10px;
+        margin-left: 2.5rem;
         background-color: #AE0AFA;
         color: white;
         border-radius: 0.5em;
-        font-size: 1.2rem;
-        font-weight: 300;
+        font-size: 1em;
         cursor: pointer;
         border: #AE0AFA;
     }
 
     button:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), conic-gradient(from 180deg at 50% 50%, #AE0AFA -60deg, #F25F29 52.5deg, #AE0AFA 300deg, #F25F29 412.5deg);
+        background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
         border-radius: 0.5em;
     }
 

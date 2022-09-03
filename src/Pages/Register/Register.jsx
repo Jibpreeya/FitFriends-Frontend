@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Register.scss";
 import React, { useState, useEffect } from "react";
-import userImage from "../../images/username.png";
-import passwordImage from "../../images/password.png";
-import ageImage from "../../images/age.png";
-import heightImage from "../../images/height.png";
-import weightImage from "../../images/weight.png";
-import userphotoImage from "../../images/photo.png";
+// import userImage from "../../images/username.png";
+// import passwordImage from "../../images/password.png";
+// import ageImage from "../../images/age.png";
+// import heightImage from "../../images/height.png";
+// import weightImage from "../../images/weight.png";
+// import userphotoImage from "../../images/photo.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -173,12 +173,13 @@ function Register() {
   return (
     <div className="register">
       <form onSubmit={handleSubmit}>
-        <h1>REGISTER</h1>
+        <h1>Register</h1>
 
         {/* username */}
         <div className="contentRegister">
           <div className="listContentRegister">
-            <img src={userImage} />
+            {/* <img src={userImage} /> */}
+            <i class="fa-solid fa-user-plus"></i>
             <input
               type="text"
               name="username"
@@ -191,7 +192,8 @@ function Register() {
 
           {/* password */}
           <div className="listContentRegister">
-            <img src={passwordImage} />
+            {/* <img src={passwordImage} /> */}
+            <i class="fa-solid fa-key"></i>
             <input
               type="password"
               name="password"
@@ -204,7 +206,8 @@ function Register() {
 
           {/* age */}
           <div className="listContentRegister">
-            <img src={ageImage} />
+            {/* <img src={ageImage} /> */}
+            <i class="fa-solid fa-users-line"></i>
             <input
               type="number"
               name="age"
@@ -217,7 +220,7 @@ function Register() {
 
           {/* height */}
           <div className="listContentRegister">
-            <img src={heightImage} />
+          <i class="fa-solid fa-ruler-combined"></i>
             <input
               type="number"
               name="height"
@@ -230,7 +233,8 @@ function Register() {
 
           {/* weight */}
           <div className="listContentRegister">
-            <img src={weightImage} />
+            {/* <img src={weightImage} /> */}
+            <i class="fa-solid fa-weight-scale"></i>
             <input
               type="number"
               name="weight"
@@ -243,7 +247,8 @@ function Register() {
 
           {/* userPhoto */}
           <div className="listContentRegister">
-            <img src={userphotoImage} />
+            {/* <img src={userphotoImage} /> */}
+            <i class="fa-regular fa-image"></i>
             <input
               type="file"
               className="inputPhoto"
