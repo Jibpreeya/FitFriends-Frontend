@@ -1,10 +1,7 @@
 import './Login.scss';
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-// import userImage from '../../images/username.png'
-// import passwordImage from '../../images/password.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
 
 
 function Login(props) {
@@ -48,7 +45,6 @@ function Login(props) {
       <h1>Login</h1>
        <div className='contentLogin'>
          <div className='listContentLogin'>
-           {/* <img src={userImage}/> */}
            <i class="fa-solid fa-user"></i>
            <input 
              type='text'
@@ -59,7 +55,6 @@ function Login(props) {
              required/> 
          </div>
          <div className='listContentLogin'>
-           {/* <img src={passwordImage}/> */}
            <i class="fa-solid fa-unlock"></i>
            <input 
             type='password' 

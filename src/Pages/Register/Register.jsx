@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Register.scss";
 import React, { useState, useEffect } from "react";
-// import userImage from "../../images/username.png";
-// import passwordImage from "../../images/password.png";
-// import ageImage from "../../images/age.png";
-// import heightImage from "../../images/height.png";
-// import weightImage from "../../images/weight.png";
-// import userphotoImage from "../../images/photo.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
