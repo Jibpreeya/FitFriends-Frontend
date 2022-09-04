@@ -179,7 +179,7 @@ function Register() {
               name="username"
               value={userRegister.username}
               onChange={handleChange}
-              placeholder="USERNAME"
+              placeholder="Username"
               required
             />
           </div>
@@ -193,7 +193,7 @@ function Register() {
               name="password"
               value={userRegister.password}
               onChange={handleChange}
-              placeholder="PASSWORD"
+              placeholder="Password"
               required
             />
           </div>
@@ -207,7 +207,7 @@ function Register() {
               name="age"
               value={userRegister.age}
               onChange={handleChange}
-              placeholder="AGE"
+              placeholder="Age"
               required
             />
           </div>
@@ -220,7 +220,7 @@ function Register() {
               name="height"
               value={userRegister.height}
               onChange={handleChange}
-              placeholder="HEIGHT IN cm"
+              placeholder="Height in cm"
               required
             />
           </div>
@@ -234,7 +234,7 @@ function Register() {
               name="weight"
               value={userRegister.weight}
               onChange={handleChange}
-              placeholder="WEIGHT IN kg"
+              placeholder="Weight in kg"
               required
             />
           </div>

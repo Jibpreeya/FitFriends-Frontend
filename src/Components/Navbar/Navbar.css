@@ -35,9 +35,9 @@
     padding: 10px 10px 10px 10px;
     border-radius: 1.5rem;
     margin-left:3rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.731);
     list-style: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     transition: 0.5s;
     text-decoration: none;
@@ -89,7 +89,7 @@
     padding: 10px 10px 10px 10px;
     /* margin-right: 20px; */
     background-color: #AE0AFA;
-    
+    box-shadow: none;
 }
 
 .login-name a {
@@ -145,18 +145,19 @@
     width: 8em;
     height: 3rem;
     /* padding: 10px 10px 10px 10px; */
-    background-color: #F2A950;
+    background-color: #AE0AFA;
     /* margin-top: 10px; */
     font-size: 1rem;
     font-weight: 600;
+    color: white;
 }
 .mobile-login-name i {
    margin-right: 10px;
 }
 .mobile-login-name :hover {
     cursor: pointer;
-    color: white;
-    background-color: #fab869;
+    color: rgb(252, 252, 252);
+    background-color: #AE0AFA;
     background-image: linear-gradient(to right, #F25F29,#CE3298, #AE0AFA);
     border-radius: 10px;
 }
@@ -167,9 +168,8 @@
     margin-top: 20px;
     color: white;
     list-style: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 1px;
-    font-weight: 600;
     cursor: pointer;
     text-align: center;
  
